@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fetch JSON API Example</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.3/new.min.css">
+</head>
+<body>
+
+<h1>Fetch JSON Data</h1>
+<input type="text" id="urlInput" value="http://localhost:3000" placeholder="Enter JSON API URL">
+<button id="fetchButton">Fetch Data</button>
+<div id="result"></div>
+
+<script>
+  document.getElementById('fetchButton').addEventListener('click', () => {
+      const url = document.getElementById('urlInput').value;
+      if (!url) {
+          alert('Please enter a valid URL');
+          return;
+      }
+
+      fetch(url/*, {
+        method: 'DELETE',
+      }*/)
+          .then(response => {
+              if (!response.ok) {
+                  throw new Error('Network response was not ok');
+              }
+              return response.text(); // Get the response as plain text
+          })
+          .then(data => {
+              const resultDiv = document.getElementById('result');
+              resultDiv.textContent = data; // Display plain text
+          })
+          .catch(error => {
+              const resultDiv = document.getElementById('result');
+              resultDiv.textContent = `Error: ${error.message}`;
+          });
+  });
+</script>
+
+</body>
+</html>

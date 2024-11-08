@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8">
+    <title>Übung 1: Routen und CORS mit vert.x</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.3/new.min.css">
+  </head>
+
+  <body>
+    <header>
+        <h1>Übung 1: Routen und CORS mit vert.x</h1>
+        <p>in <a href="https://moodle.thm.de/course/view.php?id=11780">INF1006 Praktische Informatik 2</a> von <a href="https://www.thm.de/mni/martin-weigel">Prof. Dr. Martin Weigel</a></p>
+    </header>
+
+    <main>
+      <p>Willkommen zur ersten Übung von <em>Praktische Informatik 2</em>. Die Übungsblätter können Sie entweder in einem Browser ansehen oder das HTML innerhalb von einem Editor lesen.</p>
+
+      <section>
+        <h2>Aufgabe 1: PI · 2 = Piepi</h2>
+        <p>Bevor Sie diese Übung starten können müssen Sie die <a href="https://www.jetbrains.com/idea/">IntelliJ IDE von JetBrains</a> installieren und sich ein <a href="https://vertx.io">vert.x Projekt</a> anlegen. Folgen Sie dafür der Anleitung im Slideset <strong>01-vertx.pdf</strong>.</p>
+        <p>Fügen Sie dem Projekte eine GET-Route hinzu, welche als Rückgabe den Statuscode 200 sendet. Die Webseite soll das <a href="https://www.pokemon.com/de/pokedex/piepi">Piepi Pokemon</a> und den Text <em>Hello Pi2!</em> anzeigen.
+        <img src="images/035.png" alt="Piepi ist ein kleines, pinkes Pokémon mit Feen-Typ, das wie ein Sternwesen aussieht, Flügel auf dem Rücken hat und für seine freundliche und verspielte Natur bekannt ist.">
+      </section>
+
+      <section>
+        <h2>Aufgabe 2: Poke-Team Editor</h2>
+        <p>Erinnern Sie sich noch an den <em>Poke-Team Editor</em> aus der PI1-Vorlesung zu Webservern?
+        Dieser Server erlaubte das Anlegen eines Pokemon Teams.
+        Die Daten wurden auf dem Express-Server gespeichert und bliebe so auch beim Schließen des Browsers erhalten.</p>
+        <div style="display: grid; gap: 3px; grid-template-columns: repeat(3, 1fr);">
+          <img src="images/GET-pokemon.png" alt="Die /get Route des Poke-Team Editors zeigt ein Formular zum Eintragen des Namens, der Nummer, des Levels und des Status eines Pokemon. Ein Speicher-Button führt ein POST-Request aus und speichert das Pokemon.">
+          <img src="images/GET-list.png" alt="Die /list Route zeigt eine Tabelle mit den gespeicherten Pokemon. Spalten: Bild, Name, Nummer, Level und Status.">
+          <img src="images/GET-API.png" alt="Die /api/list Route gibt ein JSON der Pokemon-Liste zurück. Jeder Eintrag erhält den Namen als String, Nummer und Level als Nummer und den Status als String.">
+        </div>
+        <p>Ihre Aufgabe ist es, einen äquivalenten vert.x Server zu schreiben. Der Server soll die gleichen Routen anbieten wir der Express-Server und den gleichen Funktionsumfang besitzen. Gehen Sie wie folgt vor:</p>
+        <ol>
+          <li>Erstellen Sie die notwendigen GET-Routen. Setzen Sie den Statuscode der Rückgaben auf 200 und prüfen Sie, ob die Routen erreichbar sind.
+          <li>Kopieren Sie den notwendigen HTML-Code der Webseiten aus dem Express-Projekt, welcher sich in diesem Übungsordner befindet und passen Sie diesen an.
+          <li>Erstellen Sie die POST-Route und legen Sie einen Array mit Pokemon an, dem Sie die gesendeten Pokemon abspeichern.
+          <li>Ermöglichen Sie einen Cross-Origin Zugriff für die API-Route.
+        </ol>
+      </section>
+    </main>
+  </body>
+</html>

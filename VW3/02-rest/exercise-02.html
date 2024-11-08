@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8">
+    <title>Übung 2: REST-API</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.3/new.min.css">
+  </head>
+
+
+  <body>
+    <header>
+        <h1>Übung 2: REST-API</h1>
+        <p>in <a href="https://moodle.thm.de/course/view.php?id=11780">INF1006 Praktische Informatik 2</a> von <a href="https://www.thm.de/mni/martin-weigel">Prof. Dr. Martin Weigel</a></p>
+    </header>
+
+    <main>
+      <section>
+        <h2>Aufgabe 1: Test der Endrouten</h2>
+        <p>In dieser Aufgabe üben Sie, wie Endpunkte manuell getestet werden können. Nutzen Sie hierfür entweder <a href="https://httpie.io/">httpie</a> oder <a href="https://curl.se">cURL</a>. Beide Tools ermöglichen es HTTP-Anfragen an einen Server zu schicken und die HTTP-Antwort zu empfangen.</p>
+
+        <p>Starten Sie den Pokedex-Server, welcher der Übung beiliegt. Testen Sie folgende Routen des Servers mit einem der beiden Tools:
+        </p>
+        <ul>
+          <li>GET "/pokedex"</li>
+          <li>GET "/pokedex/{id}"</li>
+          <li>POST "/pokedex/"</li>
+          <li>DELETE "/pokedex/{id}"</li>
+        </ul>
+        <p>Verwenden Sie diese Tools auch in den nächsten Aufgaben, um ihre eigenen Endpunkte manuell zu testen.
+        </p>
+      </section>
+
+      <section>
+        <h2>Aufgabe 2: Filter und Pagination</h2>
+        <p>
+          Öffnen Sie den Pokedex-Server in Ihrer IDE. In dieser Aufgabe erweitern Sie die bestehende Pokedex-API. Zuerst implementieren Sie eine Filter- und Paginierungsfunktion für die vorhandene GET-Route <code>/pokedex</code>.
+        </p>
+
+        <dl>
+          <dt>Filter:</dt>
+          <dd>Implementieren Sie eine Abfrage, die es ermöglicht, Pokemon nach ihrem Typ zu filtern. Wenn z.B. der URL-Parameter <code>type</code> gesetzt ist (z.B. <code>GET /pokedex?type=poison</code>), soll die API nur Pokemon zurückgeben, welche den gegebenen Typ besitzen.</dd>
+
+          <dt>Pagination:</dt>
+          <dd>Erstellen Sie eine Möglichkeit zur Paginierung. Standardmäßig sollen die ersten 20 Pokemon zurückgegeben werden. Der Startpunkt (<code>offset</code>) der Paginierung und die Anzahl (<code>limit</code>) sollen über Parameter gesetzt werden können (z.B. <code>GET /pokedex?limit=20&offset=10</code>).</dd>
+        </dl>
+
+        <details>
+          <summary>Hinweis zu Query-Parametern</summary>
+          <p>Sie können aus einer URL einen Query-Parameter mithilfe von</p>
+          <pre><code>String searchQuery = context.queryParam("name");</code></pre>
+          <p>
+            auslesen. Ein <em>Query-Parameter</em> ist ein Teil der URL, der
+            oft dazu dient, zusätzliche Informationen oder Filterkriterien an eine
+            Anfrage anzuhängen, z.B. eine Suchanfrage in
+            <code>/search?name=pikachu</code>.
+            <code>context.queryParam("name")</code> greift dabei auf den Wert des
+            Query-Parameters <code>"name"</code> zu, der in der URL nach dem
+            Fragezeichen definiert ist. Wenn die URL
+            <code>/search?name=pikachu</code> aufgerufen wird, ist die
+            <code>searchQuery</code> dann <code>"pikachu"</code>.
+          </p>
+        </details>
+      </section>
+
+      <section>
+        <h2>Aufgabe 3: PATCH</h2>
+        <p>Erweitern Sie die API um eine Route, welche spezifische Attribute eines Pokemon mithilfe von PATCH aktualisiert. Die Route soll ein Pokemon anhand seiner ID identifizieren (<code>PATCH /pokedex/{id}</code>). Bei einem PATCH-Endpunkt werden die zu aktualisierenden Felder des Datensatzes als JSON im Body der Anfrage mitgeschickt. Im Vergleich zu PUT müssen jedoch nicht alle Felder aktualisiert werden. Testen Sie ihren Endpunkt, indem Sie versuchen ein Feld und danach mehrere Felder eines Pokemon zu aktualisieren und diese danach abzufragen.
+
+        <details>
+          <summary>Hinweis zu Pfadparametern</summary>
+          <p>Sie können aus einem Pfad einen Parameter mithilfe von</p>
+          <pre><code>String pathId = context.pathParam("id");</code></pre>
+          <p>
+            auslesen. Ein <em>Pfadparameter</em> ist ein Teil der URL, der
+            oft dazu dient, eine Ressource eindeutig zu identifizieren, z.B. die ID
+            eines Pokemon in <code>/pokemon/{id}</code>.
+            <code>context.pathParam("id")</code> greift dabei auf den Wert des
+            Pfadparameters <code>"id"</code> zu, der in der URL definiert ist. Wenn
+            die URL <code>/pokemon/25</code> aufgerufen wird, ist
+            <code>pathId</code> der String <code>"25"</code>.
+          </p>
+        </details>
+      </section>
+
+      <section>
+        <h2>Aufgabe 3: Definieren eigener Endpunkte</h2>
+        <p>
+          Nehmen Sie an, Sie möchten den Pokedex um Abilities (=Fähigkeiten) der Pokemon erweitern. Jedes Pokemon soll eine Liste an Abilities besitzen, welche wie folgt definiert sind: <code>name</code> (string), <code>attack_points</code> (int) und <code>effect_details</code> (string).
+        </p>
+        <p>
+          Überlegen Sie sich welche Endpunkte, Anfrage- und Rückgabe-Bodies, und Statuscodes für folgende Aufrufe geeignet sind:
+        </p>
+        <ol>
+          <li>Nur die Abilities eines Pokemon anzuzeigen.</li>
+          <li>Alle Pokemon mit einer bestimmten Ability, gefiltert nach dem Name der Ability, anzuzeigen.</li>
+        </ol>
+        <p>Sie müssen diese Routen <em>nicht</em> programmieren.</p>
+      </section>
+    </main>
+  </body>
+</html>

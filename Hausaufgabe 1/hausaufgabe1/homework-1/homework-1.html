@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8">
+    <title>Hausübung 1: Serverseitige Programmierung</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.3/new.min.css">
+  </head>
+
+  <body>
+    <header>
+        <h1>Hausübung 1: Serverseitige Programmierung</h1>
+        <p>in <a href="https://moodle.thm.de/course/view.php?id=11780">INF1006 Praktische Informatik 2</a> von <a href="https://www.thm.de/mni/martin-weigel">Prof. Dr. Martin Weigel</a></p>
+    </header>
+
+    <main>
+      <p>Bitte bereiten Sie die Lösungen sorgfältig vor. Laden Sie diese als zip-Archiv im Moodle hoch. Die Abgabedeadline steht im Moodle. Pro Hausübungsgruppe ist nur eine Abgabe notwendig. In der darauffolgenden Übung muss aber jeder Studierende in der Lage sein, die Lösungen zu erklären. Zum Bestehen der Hausübung müssen die Aufgaben überwiegend richtig gelöst sein. Das Bestehen liegt im Ermessen der Tutoren und Übungsbetreuer. Bei Fragen wenden Sie sich an ihre Tutoren.</p>
+
+      <section>
+        <h2>Aufgabe 1: Trainerdatenbank mit REST</h2>
+        <p>Erstelle einen REST-basierten Webserver auf <strong>Port 3000</strong>, der grundlegende CRUD-Operationen (Create, Read, Update, Delete) für Trainer-Daten ermöglicht. Der Server soll verschiedene Endpunkte/Routen bieten, um eine einfache Pokemon-Trainerverwaltung zu simulieren.</p>
+
+        <p>Jeder Trainer hat die folgenden Attribute:
+          <ul>
+            <li><code>name</code> (string, z.B. "Ash")
+            <li><code>age</code> (int)
+            <li><code>birthplace</code> (string)
+            <li><code>pokemon</code> (Liste von Pokemon)
+          </ul>
+
+          Ein Pokemon besitzt die Attribute:
+          <ul>
+            <li><code>name</code> (string)
+            <li><code>level</code> (int)
+            <li><code>type</code> (string, z.B. "Fire")
+          </ul>
+          Legen Sie dafür zwei passende Java Klassen für Trainer und Pokemon an. Erstellen Sie eine Variable zum Speichern und Verwalten der Trainer (z.B. eine Liste von Trainern). Füllen Sie diese beim Start mit zwei Trainern: Ash und Gary. Ash hat am Anfang ein <a href="https://www.pokemon.com/de/pokedex/pikachu">Pikachu</a> und Gary ein <a href="https://www.pokemon.com/de/pokedex/schiggy">Schiggy</a>.
+        </p>
+
+        <p>Erstellen Sie folgende Endpunkte der REST-API:
+          <dl>
+            <dt>GET /trainers
+            <dd>Liefert alle Trainer in der Datenbank zurück
+            <dt>GET /trainers/{id}
+            <dd>Liefert einen spezifischen Trainer basierend auf dem Listen-Index zurück zurück (<code>/trainers/0</code> gibt den ersten Trainer, z.B. Ash, zurück)
+            <dt>GET /trainers/{id}/pokemon
+            <dd>Liefert alle Pokemon des Trainers mit der ID {id} zurück.
+            <dt>GET /trainers/{id}/pokemon/{pokemon-number}
+            <dd>Liefert die Details eines spezifischen Pokemon eines Trainers mit der gegebenen ID basierend auf der Nummer des Pokemon  (<code>/trainers/0/pokemon/0</code> gibt Details zu Ashs Pikachu).
+            <dt>POST /trainers/{id}/pokemon
+            <dd>Fügt ein neues Pokemon zur Liste der Pokemon eines Trainers hinzu. Der neue Pokemon-Datensatz wird als JSON im Body der Anfrage gesendet.
+            <dt>PUT /trainers/{id}/pokemon/{pokemon-number}
+            <dd>Aktualisiert alle Details eines spezifischen Pokemon eines Trainers.
+            <dt>PATCH /trainers/{id}
+            <dd>Teilweise Aktualisierung der Details eines Trainers (z.B. <code>name</code>, <code>age</code>, <code>birthplace</code>). Nicht alle Trainer-Attribute müssen im Body vorkommen.
+            <dt>DELETE /trainers/{id}/pokemon/{pokemon-number}
+            <dd>Löscht ein spezifisches Pokemon eines Trainers aus der Liste der Pokemon. Die anderen Pokemon dürfen daraufhin neue Nummern zugewiesen bekommen (z.B. in der Liste aufrücken).
+          </dl>
+        Die Rückgabe soll jeweils ein gültiges JSON-Dokument sein. Nutzen Sie als <code>id</code> und <code>pokemon-number</code> den index aus ihrer Liste oder ihrem Array.
+        </p>
+
+        <p>Sie brauchen für diese Aufgabe kein Frontend mit HTML/CSS schreiben. Sie müssen die Funktionalität ihrer REST-API aber während der Abgabe demonstrieren können. Zum Beispiel mit einem API-Testwerkzeug wie <a href="https://httpie.io">HTTPie</a> oder <code>cURL</code>.
+
+        <details>
+          <summary>Überlegen Sie sich warum es im HTTP Standard wichtig ist, dass GET-Anfragen den Zustand des Servers nicht verändern (z.B. keine Aktionen auslösen oder Daten verändern). Geben Sie ein konkretes Angriffsbeispiel (z.B. über ein eingebettetes Bild <em>oder</em> durch eine WhatsApp Nachricht mit Link).</summary>
+        Antwort: GET-Anfragen werden automatisch ausgelöst,
+        deshalb sollten sie nicht den Serverzustand ändern können.
+        Sonst könnte ein Angreifer den Benutzer dazu bringen, unwissentlich gefährliche Aktionen auszuführen.
+        Er könnte durch ein eingebettetes Bild, wo ein Link drinnen ist, z.B. mein Geld transferieren.
+        </details>
+      </section>
+
+
+      <section>
+        <h2>Aufgabe 2: Session Management</h2>
+        <p>In dieser Aufgabe erweitern wir die API mit einem einfachen Single-User Session Management für den Benutzer Ash. Trainer mit einem anderen Namen benötigen kein Session Management. Sie können sich aber gerne überlegen, wie sie die Passwörter und Sessions für mehrere Benutzer verwalten könnten. Dies wird in späteren PI2-Vorlesungen noch einmal relevant.</p>
+
+        <ol>
+          <li>Erweitern Sie ihre REST API mit einer Session ID. Diese soll beim Aufruf von <code>POST /login</code> mit dem Body <code>{"user": "Ash", "password": "Papr1KA"}</code> generiert und als Cookie gesetzt werden. Bei einem falschen Benutzernamen und Passwort soll die alte Session bestehen bleiben. Geben Sie dann <code>401 Unauthorized</code> zurück. Sie können das Passwort und die aktive Session-ID in zwei Variablen vom Typ String speichern.
+
+          <li>Erstellen Sie eine weitere Route <code>POST /logout</code>. Bei dem Body <code>{"user": "Ash"}</code> soll die Session-ID verworfen werden, sofern die Anfrage das richtige Session-ID-Cookie besessen hat. Bei anderen Benutzernamen kann der Statuscode <code>403 Forbidden</code> verwendet werden.</p>
+
+          <li>Ändern Sie die Create, Update und Delete Methoden, damit die Änderungen nur ausgeführt werden, wenn eine richtige Session ID vorhanden ist. Sollte die Session ID nicht richtig sein, geben Sie dem Statuscode <code>401 Unauthorized</code> zurück. Read Methoden dürfen auch ohne Login aufgerufen werden.
+        </ol>
+
+        <details>
+          <summary>Warum ist es wichtig bei der Logout-Route die Session ID zu prüfen?</summary>
+          Antwort: Ein Angreifer könnte einfach die Logout-Route benutzen und andere Benutzer ausloggen.
+          Es ist wichtig, dass nur der Benutzer selber, seine Session beenden kann.
+        </details>
+      </section>
+
+
+      <section>
+        <h2>Aufgabe 3: CORS</h2>
+        <p>Öffnen Sie die Datei <a href="./fetchclient.html">fetchclient.html</a> in diesem Hausübungs-Verzeichnis in einem Browser. Versuchen Sie auf die Ressourcen ihrer API zuzugreifen. Achten Sie dabei auf den korrekten Port. Der Zugriff sollte verweigert werden (s. Konsole im Browser).</p>
+
+        <p>Ermöglichen Sie einen Cross Origin Zugriff auf ihrem Server. Alle GET-Routen sollen in Anfragen von anderen Servern zugreifbar sein. Aber nicht die POST, PUT und DELETE Routen.</p>
+
+        <details>
+          <summary>Warum kann man mit den API-Testwerkzeugen wie <a href="https://httpie.io">HTTPie</a> oder <code>cURL</code> unabhängig von den CORS Einstellungen des Servers auf alle Webseiten zugreifen? Ist dies ein Sicherheitsrisiko beim Surfen im Internet? Begründen Sie ihre Meinung.</summary>
+          Antwort: API-Testwerkzeuge wie HTTPie oder cURL umgehen die CORS-Beschränkungen,
+          weil sie keine Anfragen direkt über den Browser ausführen.
+          Tools wie HTTPie und cURL greifen nicht auf die gespeicherten Sitzungsdaten des Browsers
+          oder auf Benutzerinformationen zu, sodass sie in diesem Kontext keine Gefahr darstellen.
+        </details>
+
+        <details>
+          <summary>CORS verhindert, dass ein bösartiges Skript auf einer Webseite A mit einer anderen Webseite B interagiert. Warum sollte man trotzdem nicht auf Webseite A sein Passwort für Webseite B eingeben?</summary>
+          Antwort: CORS verhindert nicht, dass eine bösartige Webseite Daten, die der Nutzer dort manuell eingibt,
+          abfängt und missbraucht. Wenn der Benutzer sein Passwort für Webseite B auf Webseite A eingibt,
+          kann Webseite A diese Eingabe problemlos lesen und das Passwort abspeichern oder weiterleiten.
+        </details>
+      </section>
+    </main>
+  </body>
+</html>
