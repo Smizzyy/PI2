@@ -5,6 +5,4 @@
 component Comp3
 component [Last\ncomponent] as Comp4
 
-faesFAff
-
 @enduml
