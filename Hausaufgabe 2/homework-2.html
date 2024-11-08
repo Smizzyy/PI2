@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.3/new.min.css">
+  <title>Hausübung 2: Verteilte Systeme &amp; Git</title>
+</head>
+<body>
+  <header>
+    <h1>Hausübung 2: Verteilte Systeme &amp; Git</h1>
+    <p>in <a href="https://moodle.thm.de/course/view.php?id=11780">INF1006 Praktische Informatik 2</a> von <a href="https://www.thm.de/mni/martin-weigel">Prof. Dr. Martin Weigel</a></p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Aufgabe 1: Pikachus Burgerladen</h2>
+      <p>Pikachu und seine Freunde möchten einen Burgerladen namens „BurgerBlitz“ aufmachen. Der Burgerladen soll auf den Architekturen und Kommunikationsmustern basieren, welche Pikachu in <em>Praktische Informatik 2</em> während seinem Informatik-Studium kennengelernt hat.</p>
+
+      <h3>Der erste Burgerladen</h3>
+      <p>Für den ersten Burgerladen plant Pikachu folgende Struktur mit vier Komponenten:</p>
+      <ol>
+        <li><a href="https://www.pokemon.com/de/pokedex/pikachu">Pikachu</a> übernimmt den <em>Kundenservice</em>. Pikachu begrüßt die Kunden und nimmt ihre Bestellungen auf, übergibt die Bestellung dann an die Bestellverwaltung.</li>
+        <li><a href="https://www.pokemon.com/de/pokedex/hoothoot">Hoothoot</a> übernimmt die <em>Bestellverwaltung</em>. Hoothoot überprüft, ob die Zutaten vorhanden sind und stellt die Bestellung zur Küche durch.</li>
+        <li><a href="https://www.pokemon.com/de/pokedex/glumanda">Glumanda</a> übernimmt die <em>Küche</em>. Glumanda grillt das Patty und fügt die Zutaten entsprechend der Bestellung hinzu.</li>
+        <li><a href="https://www.pokemon.com/de/pokedex/enton">Enton</a> ist <em>Lagerverwalter</em>. Enton stellt sicher, dass das Lager korrekt bestückt ist. Enton gibt geforderte Zutaten an die Küche weiter und meldet Hoothoot auf Anfrage die Engpässe und Bestandsergänzungen.</li>
+      </ol>
+
+      <details>
+        <summary>Erstellen Sie mittels PlantUML ein <a href="https://plantuml.com/de/component-diagram">Komponenten-Diagramm</a> für den Burgerladen.</summary>
+        Hier ihre Antwort als Bild einfügen
+      </details>
+
+      <details>
+        <summary>An welcher Architektur von verteilten Systemen ist der Burgerladen angelehnt?</summary>
+        Hier ihre Antwort einfügen
+      </details>
+
+      <details>
+        <summary>Mit welchen Komunikationsmustern würden Sie die vier Komponenten verbinden? Begründen Sie ihre Antwort.</summary>
+        Hier ihre Antwort einfügen
+      </details>
+
+      <h3>Erweitern der Speisekarte</h3>
+      <p>Die Laden läuft super und Pikachu möchte die Speisekarte um Salate, Suppen und Eis erweitern. Dazu müssen die Aufgaben in der Küche an mehrere Pokemon verteilt werden. <a href="https://www.pokemon.com/de/pokedex/bisasam">Bisasam</a> übernimmt die Salate, <a href="https://www.pokemon.com/de/pokedex/schiggy">Schiggy</a> die Suppen und <a href="https://www.pokemon.com/de/pokedex/schlurp">Schlurp</a> das Eis.</p>
+      <details>
+        <summary>Skizzieren Sie die Struktur des neuen Burgerladens mit jedem Pokemon als eine Komponente. Welcher Architektur entspricht dieser neuen Aufgabenverteilung?</summary>
+        Hier ihre Antwort als Bild einfügen
+      </details>
+      <details>
+        <summary>Mit welchem Kommunikationsmuster könnte die Bestellverwaltung jetzt mit den Komponenten der Küche kommunizieren?</summary>
+        Hier ihre Antwort einfügen
+      </details>
+
+      <h3>Expansionsbestrebungen</h3>
+      <p>Nach einem Jahr möchte Pikachu fünf weitere Burgerläden im Umkreis errichten.</p>
+      <details>
+        <summary>Beschreiben Sie wie die Expansion als (a) zentrales System und als (b) dezentrales System aussehen könnte. Nennen Sie die Vor- und Nachteile beider Systeme.</summary>
+        Hier ihre Antwort als Bild einfügen
+      </details>
+    </section>
+
+
+    <section>
+      <h2>Aufgabe 2: Trainings-Management-System</h2>
+      <p>
+        Die Pokemon-Liga plant die Entwicklung eines verteilten Systems zur Verwaltung von Trainingseinheiten und Arenakämpfen. Das System soll folgende Komponenten besitzen:
+      </p>
+
+      <ul>
+        <li>Ein zentraler <strong>Authentifizierungsserver</strong> verwaltet die Zugangsdaten aller registrierten Trainer und Arenaleiter.</li>
+        <li>Ein <strong>Trainings-Scheduler</strong> koordiniert die Reservierung von Trainingsarealen in den verschiedenen Städten. Trainer können freie Slots buchen und ihre Pokemon für spezielle Trainingseinheiten anmelden.</li>
+        <li>Ein <strong>Battle-Management-Service</strong> organisiert die Arenakämpfe. Er kommuniziert mit den Arena-Terminals vor Ort und synchronisiert Kampfergebnisse.</li>
+        <li>Ein <strong>Statistik-Service</strong> sammelt Trainingsdaten und Kampfergebnisse. Er generiert Entwicklungsberichte für einzelne Pokemon und Erfolgsquoten der Trainer.</li>
+        <li>Ein <strong>Benachrichtigungsdienst</strong> informiert Trainer über bestätigte Termine, anstehende Kämpfe und Trainingsfortschritte ihrer Pokemon.</li>
+        <li>Eine <strong>Web-App</strong> dient als Frontend für Trainer und Arenaleiter. Sie kommuniziert ausschließlich über den Proxy mit den Backend-Services.</li>
+        <li>Einen zentralen <strong>Gateway/Proxy</strong> der sämtliche eingehende Anfragen an die einzelnen Services verteilt.</li>
+      </ul>
+
+      <details>
+        <summary>Erstellen Sie mittels Plant-UML ein <a href="https://plantuml.com/de/component-diagram">Komponenten-Diagramm</a> für das beschriebene Pokemon Trainings-Management-System. Berücksichtigen Sie dabei alle genannten Komponenten, sowie&hellip;
+      <ul>
+        <li>Datenflüsse und Kommunikationspfade: <em>Wer "redet" mit wem und worüber?</em></li>
+        <li>Mögliche Subnetze die sich aus einer sinnvollen Gruppierung der Services ergeben</li>
+        <li>Externe Systemzugriffe, z.B. über die Arena-Terminals</li>
+      </ul></summary>
+        Hier ihre Antwort als Bild einfügen
+      </details>
+
+      <details>
+        <summary>Geben Sie für jede der acht Fehlannahmen ein Beispiel an, wie diese im Trainings-Management-Systems zu Problemen führen könnte.</summary>
+        Hier ihre Antwort einfügen
+      </details>
+    </section>
+
+
+    <section>
+      <h2>Aufgabe 3: Git-basiertes Pokemon-Battle</h2>
+      <p>
+        Sie sollen mit Git ein einfaches Pokemon-Battle simulieren. Jedes Pokemon wird als JSON-Datei mit seinen Statuswerten repräsentiert. Diese Werte ändern sich im Verlauf der Aufgabe. Nutzen Sie Git ausschließlich mit der Kommandozeile.
+      </p>
+
+      <details>
+        <summary>Dokumentieren Sie Ihre genutzten Git-Befehle zum Lösen dieser Aufgabe.</summary>
+        Hier die Befehle einfügen
+      </details>
+
+      <h3>Vorbereitung</h3>
+      <p>Legen Sie ein Remote-Repository auf <a href="https://git.thm.de">git.thm.de</a> an und klonen Sie es auf Ihren Computer.</p>
+
+      <h3>Schritte</h3>
+      <p>Führen Sie folgende Anweisungen aus:</p>
+      <ol>
+        <li>
+          Legen Sie drei JSON-Dateien <code>pikachu.json</code>, <code>bisasam.json</code>, <code>traumato.json</code> an, in denen die Grundwerte jedes Pokemon gespeichert sind. Für Pikachu:<br>
+<pre><code>{
+  "name": "Pikachu",
+  "HP": 100,
+  "attack": 50,
+  "defense": 40,
+  "usedSpecialAbility": false
+}
+</code></pre>
+        </li>
+        <li>
+          Fügen Sie <code>pikachu.json</code> dem Repository hinzu und committen Sie die Änderung mit der Nachricht: Pikachu tritt der Schlacht bei.
+        </li>
+        <li>
+          Fügen Sie <code>traumato.json</code> hinzu und committen Sie die Datei mit der Nachricht: Traumato tritt der Schlacht bei.
+        </li>
+        <li>
+          Pushen Sie die bisherigen Änderungen in das Remote-Repository.
+        </li>
+        <li>
+          Branch-Erstellung: Erstellen Sie einen neuen Branch mit dem Namen <code>traumwelt</code>, um eine Sonderattacke von Traumato zu simulieren.
+        </li>
+        <li>
+          Wechseln Sie in den Branch <code>traumwelt</code>. Setzen Sie in <code>traumato.json</code> den Wert <code>"usedSpecialAbility"</code> auf <code>true</code> Committen Sie mit der Nachricht: Traumato setzt Teleport ein.
+        </li>
+        <li>
+          Bearbeiten Sie <code>pikachu.json</code>, um Pikachus Lebenspunkte um 20 zu reduzieren (auf 80HP). Committen Sie die Änderung mit der Nachricht: Traumato greift an, Pikachu verliert 20HP.
+        </li>
+        <li>
+          Wechseln Sie zurück zum Main-Branch.
+        </li>
+        <li>
+          Fügen Sie <code>bisasam.json</code> in den Master-Branch ein und committen Sie die Datei mit der Nachricht: Bisasam tritt der Schlacht bei.
+        </li>
+        <li>
+          Ändern Sie im Master-Branch <code>pikachu.json</code>, sodass Pikachus HP um 10 reduziert werden (auf 90HP). Committen Sie mit der Nachricht: Bisasam greift an, Pikachu hat Schaden genommen.
+        </li>
+        <li>
+          Führen Sie einen Merge des <code>traumwelt</code>-Branches in den Master durch. Lösen Sie die entstandenen Merge-Konflikt, sodass Pikachu Schaden aus beiden Attacken nimmt. Geben Sie als Commit-Nachricht an: Konflikt gelöst, Pikachu hat jetzt 70HP.
+          <details>
+            <summary>Warum kam es in diesem Schritt zu einem Merge-Konflikt?</summary>
+            Hier ihre Antwort eintragen
+          </details>
+          <details>
+            <summary>Beschreiben Sie wie Sie den Merge-Konflikt gelöst haben.</summary>
+            Hier ihre Antwort eintragen
+          </details>
+        </li>
+        <li>
+          Pushen Sie den finalen Stand des Projekts zurück ins Remote-Repository.
+        </li>
+      </ol>
+    </section>
+  </main>
+</body>
+</html>
