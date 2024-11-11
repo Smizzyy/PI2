@@ -1,0 +1,25 @@
+@startuml
+package "BurgerBlitz" {
+    actor Kunde
+
+    component "Pikachu\n(Kundenservice)" as Pikachu
+    component "Hoothoot\n(Bestellverwaltung)" as Hoothoot
+    node "Küche\n(Glumanda, Bisasam, Schiggy, Schlurp)" as Küche {
+        component "Glumanda\n(grillt Burger)" as Glumanda
+        component "Bisasam\n(bereitet Salate zu)" as Bisasam
+        component "Schiggy\n(kocht Suppen)" as Schiggy
+        component "Schlurp\n(serviert Eis)" as Schlurp
+    }
+    component "Enton\n(Lagerverwalter)" as Enton
+
+    Kunde --> Pikachu : Bestellung aufgeben
+    Pikachu --> Hoothoot : Bestellungen aufnehmen
+    Enton <--> Küche : Zutaten bereitstellen/anfordern
+    Hoothoot <-- Enton : Rückmeldung zu Engpässen
+
+    Hoothoot -[#8A2BE2]-> Glumanda : <color:#8A2BE2>Burger-Bestellung</color>
+    Hoothoot --> Bisasam : Salat-Bestellung
+    Hoothoot -[#8A2BE2]-> Schiggy : <color:#8A2BE2>Suppen-Bestellung</color>
+    Hoothoot --> Schlurp : Eis-Bestellung
+}
+@enduml

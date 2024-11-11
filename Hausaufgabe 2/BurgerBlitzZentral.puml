@@ -1,0 +1,18 @@
+@startuml
+package "a) BurgerBlitz Hauptsystem" {
+    component "Zentraler Server"
+    node "Burgerladen 1"
+    node "Burgerladen 2"
+    node "Burgerladen 3"
+    node "Burgerladen 4"
+    node "Burgerladen 5"
+    node "Burgerladen 6"
+
+    "Zentraler Server" --> "Burgerladen 1" : Verwaltung & Daten
+    "Zentraler Server" --> "Burgerladen 2" : Verwaltung & Daten
+    "Zentraler Server" --> "Burgerladen 3" : Verwaltung & Daten
+    "Zentraler Server" --> "Burgerladen 4" : Verwaltung & Daten
+    "Zentraler Server" --> "Burgerladen 5" : Verwaltung & Daten
+    "Zentraler Server" --> "Burgerladen 6" : Verwaltung & Daten
+}
+@enduml

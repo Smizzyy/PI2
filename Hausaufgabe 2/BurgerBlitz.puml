@@ -1,8 +1,17 @@
 @startuml
+package "BurgerBlitz" {
+    actor Kunde
 
-[First component]
-[Another component] as Comp2
-component Comp3
-component [Last\ncomponent] as Comp4
+    component "Pikachu\n(Kundenservice)" as Pikachu
+    component "Hoothoot\n(Bestellverwaltung)" as Hoothoot
+    component "Glumanda\n(Küche)" as Glumanda
+    component "Enton\n(Lagerverwalter)" as Enton
 
+    Kunde --> Pikachu : Bestellung aufgeben
+    Pikachu --> Hoothoot : Bestellungen aufnehmen
+    Hoothoot -[#8A2BE2]-> Glumanda : <color:#8A2BE2>Bestellung weiterleiten
+    Glumanda --> Enton : Zutaten anfordern
+    Enton -[#006400]-> Glumanda : <color:#006400>Zutaten bereitstellen
+    Hoothoot <-- Enton : Rückmeldung zu Engpässen
+}
 @enduml

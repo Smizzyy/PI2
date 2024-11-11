@@ -1,0 +1,16 @@
+@startuml
+package "b) Dezentrale BurgerBlitz Standorte" {
+    node "Burgerladen 1 (autark)"
+    node "Burgerladen 2 (autark)"
+    node "Burgerladen 3 (autark)"
+    node "Burgerladen 4 (autark)"
+    node "Burgerladen 5 (autark)"
+    node "Burgerladen 6 (autark)"
+
+    "Burgerladen 1 (autark)" <--> "Burgerladen 2 (autark)" : Datensync.
+    "Burgerladen 2 (autark)" <--> "Burgerladen 3 (autark)" : Datensync.
+    "Burgerladen 3 (autark)" <--> "Burgerladen 4 (autark)" : Datensync.
+    "Burgerladen 4 (autark)" <--> "Burgerladen 5 (autark)" : Datensync.
+    "Burgerladen 5 (autark)" <--> "Burgerladen 6 (autark)" : Datensync.
+}
+@enduml

@@ -27,35 +27,71 @@
 
       <details>
         <summary>Erstellen Sie mittels PlantUML ein <a href="https://plantuml.com/de/component-diagram">Komponenten-Diagramm</a> für den Burgerladen.</summary>
-        Hier ihre Antwort als Bild einfügen
+        <img src="BurgerBlitz.png" alt="BurgerBlitzPUML" width="420" height="720">
       </details>
 
       <details>
         <summary>An welcher Architektur von verteilten Systemen ist der Burgerladen angelehnt?</summary>
-        Hier ihre Antwort einfügen
+        Die Architektur, die hier dargestellt wird, ist angelehnt an ein verteiltes System mit klarer Arbeitsteilung und Kommunikation zwischen den verschiedenen Diensten.
       </details>
 
       <details>
-        <summary>Mit welchen Komunikationsmustern würden Sie die vier Komponenten verbinden? Begründen Sie ihre Antwort.</summary>
-        Hier ihre Antwort einfügen
+        <summary>Mit welchen Kommunikationsmustern würden Sie die vier Komponenten verbinden? Begründen Sie ihre Antwort.</summary>
+        Bei Message Queuing kann Beispielsweise der Kundenservice (Pikachu) Bestellungen aufnehmen und in eine Queue stellen,
+        während die Bestellverwaltung (Hoothoot) die Bestellungen verarbeitet, ohne dass Pikachu auf eine sofortige Antwort wartet.
+        Request-Response ist sinnvoll, wenn die Komponenten in Echtzeit miteinander kommunizieren müssen, z. B. wenn der Kundenservice sofortige Rückmeldungen an die Kunden benötigt.
       </details>
 
       <h3>Erweitern der Speisekarte</h3>
-      <p>Die Laden läuft super und Pikachu möchte die Speisekarte um Salate, Suppen und Eis erweitern. Dazu müssen die Aufgaben in der Küche an mehrere Pokemon verteilt werden. <a href="https://www.pokemon.com/de/pokedex/bisasam">Bisasam</a> übernimmt die Salate, <a href="https://www.pokemon.com/de/pokedex/schiggy">Schiggy</a> die Suppen und <a href="https://www.pokemon.com/de/pokedex/schlurp">Schlurp</a> das Eis.</p>
+      <p>Der Laden läuft super und Pikachu möchte die Speisekarte um Salate, Suppen und Eis erweitern. Dazu müssen die Aufgaben in der Küche an mehrere Pokemon verteilt werden. <a href="https://www.pokemon.com/de/pokedex/bisasam">Bisasam</a> übernimmt die Salate, <a href="https://www.pokemon.com/de/pokedex/schiggy">Schiggy</a> die Suppen und <a href="https://www.pokemon.com/de/pokedex/schlurp">Schlurp</a> das Eis.</p>
       <details>
         <summary>Skizzieren Sie die Struktur des neuen Burgerladens mit jedem Pokemon als eine Komponente. Welcher Architektur entspricht dieser neuen Aufgabenverteilung?</summary>
-        Hier ihre Antwort als Bild einfügen
+        <img src="BurgerBlitzErweitert.png" alt="BurgerBlitzErweitertPUML" width="650" height="820"><br>
+        Die Aufgabenverteilung entspricht einer service-orientierten Architektur (SOA). Das bedeutet, dass das System in spezialisierte, unabhängige Dienste aufgeteilt ist, die jeweils eine bestimmte Aufgabe erfüllen. Z.B. Könnten die Salate leere gehen und Bisasam kann die Zutaten an Enton anfordern, ohne dass es Schlurp beeinflusst, obwohl beide in der gleichen Küche (Topic) sind.
       </details>
       <details>
         <summary>Mit welchem Kommunikationsmuster könnte die Bestellverwaltung jetzt mit den Komponenten der Küche kommunizieren?</summary>
-        Hier ihre Antwort einfügen
+        Man könnte mit Publish-Subscribe kommunizieren. Hier kann die Bestellverwaltung als „Publisher“ fungieren und Nachrichten über das „Topic“ Küche an alle interessierten „Subscriber“ (in diesem Fall die verschiedenen Küchendienste) senden.
       </details>
 
       <h3>Expansionsbestrebungen</h3>
       <p>Nach einem Jahr möchte Pikachu fünf weitere Burgerläden im Umkreis errichten.</p>
       <details>
         <summary>Beschreiben Sie wie die Expansion als (a) zentrales System und als (b) dezentrales System aussehen könnte. Nennen Sie die Vor- und Nachteile beider Systeme.</summary>
-        Hier ihre Antwort als Bild einfügen
+        <img src="BurgerBlitzZentral.png" alt="BurgerBlitzZentralPUML" width="2000" height="200"><br>
+        a) <strong>Zentrales System</strong>: Ein zentraler Server verwaltet die Daten und Kommunikation für alle Burgerläden.<br><br>
+
+        <h4>Vorteile:</h4>
+        <ul>
+          <li>Alle Daten und Prozesse werden über einen Hauptserver gesteuert, was eine einfache Kontrolle und Überwachung ermöglicht.</li>
+          <li>Durch die zentrale Speicherung und Verwaltung der Daten bleibt die Datenkonsistenz (Datenübereinstimmung) gewahrt. Alle Filialen greifen auf dieselbe Datenbasis zu, was Fehler durch inkonsistente Daten verringert.</li>
+          <li>Software-Updates oder Änderungen müssen nur einmal am zentralen Server durchgeführt werden und wirken sich automatisch auf alle verbundenen Filialen aus.</li>
+          <li>Die zentrale Steuerung kann Betriebskosten senken, da weniger technische Infrastruktur und personelle Ressourcen für jeden einzelnen Laden erforderlich sind.</li>
+        </ul>
+
+        <h4>Nachteile:</h4>
+        <ul>
+          <li>Wenn der zentrale Server ausfällt, könnten alle angeschlossenen Filialen betroffen sein (Single Point of Failure).</li>
+          <li>Bei hoher Last kann der zentrale Server ein Engpass sein, der zu Leistungseinbußen führt.</li>
+        </ul>
+        <img src="BurgerBlitzDezentral.png" alt="BurgerBlitzDezentralPUML" width="200" height="700"><br>
+
+        b) <strong>Dezentrales System</strong>: Jeder Burgerladen arbeitet autark (unabhängig und selbständig) und kann unabhängig vom zentralen System agieren. Es gibt eine Datensynchronisation zwischen den Läden, um Redundanz (Mehrfachvorhandensein) zu gewährleisten.<br><br>
+
+        <h4>Vorteile:</h4>
+        <ul>
+          <li>Jeder Laden funktioniert unabhängig, sodass der Ausfall eines einzelnen Standorts keinen Einfluss auf die anderen hat.</li>
+          <li>Die Filialen können lokale Anpassungen und Entscheidungen treffen, die ihren spezifischen Bedürfnissen entsprechen, ohne auf eine zentrale Genehmigung zu warten.</li>
+          <li>Neue Filialen können hinzugefügt werden, ohne dass die Leistung eines zentralen Servers beeinträchtigt wird. Dies macht das System besser anpassbar für Wachstum.</li>
+          <li>Selbst bei einer Störung der zentralen Verbindung können die einzelnen Standorte weiterhin arbeiten.</li>
+        </ul>
+
+        <h4>Nachteile:</h4>
+        <ul>
+          <li>Die Synchronisation der Daten zwischen den Standorten ist schwieriger zu gewährleisten, was zu potenziellen Inkonsistenzen führen kann.</li>
+          <li>Jeder Standort benötigt seine eigene Infrastruktur und möglicherweise separate technische Unterstützung.</li>
+          <li>Das Management eines Systems, das nicht zentral gesteuert wird, kann komplizierter sein und erfordert eine abgestimmte Zusammenarbeit zwischen den Standorten.</li>
+        </ul>
       </details>
     </section>
 
@@ -82,7 +118,8 @@
         <li>Datenflüsse und Kommunikationspfade: <em>Wer "redet" mit wem und worüber?</em></li>
         <li>Mögliche Subnetze die sich aus einer sinnvollen Gruppierung der Services ergeben</li>
         <li>Externe Systemzugriffe, z.B. über die Arena-Terminals</li>
-      </ul></summary>
+      </ul>
+        </summary>
         Hier ihre Antwort als Bild einfügen
       </details>
 
