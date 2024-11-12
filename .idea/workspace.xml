@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dc77195c-4e56-412f-ad31-cdf8f4f51f94" name="Changes" comment="Aufgabe 2.1">
+    <list default="true" id="dc77195c-4e56-412f-ad31-cdf8f4f51f94" name="Changes" comment="json test">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Hausaufgabe 2/homework-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/Hausaufgabe 2/homework-2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hausaufgabe 2/package.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +19,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="UML Sequence" />
+        <option value="package.json" />
       </list>
     </option>
   </component>
@@ -104,7 +107,7 @@
       <workItem from="1731347067483" duration="705000" />
       <workItem from="1731348501473" duration="696000" />
       <workItem from="1731354919180" duration="1000" />
-      <workItem from="1731401094962" duration="10576000" />
+      <workItem from="1731401094962" duration="16534000" />
     </task>
     <task id="LOCAL-00001" summary="a">
       <option name="closed" value="true" />
@@ -162,7 +165,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731411236842</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="json test">
+      <option name="closed" value="true" />
+      <created>1731412615995</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1731412615995</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -194,6 +205,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="a" />
     <MESSAGE value="Aufgabe 2.1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Aufgabe 2.1" />
+    <MESSAGE value="json test" />
+    <option name="LAST_COMMIT_MESSAGE" value="json test" />
   </component>
 </project>

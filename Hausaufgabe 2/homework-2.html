@@ -173,7 +173,38 @@
 
       <details>
         <summary>Dokumentieren Sie Ihre genutzten Git-Befehle zum Lösen dieser Aufgabe.</summary>
-        Hier die Befehle einfügen
+        Remote_Repository klonen: <code>git clone https://git.thm.de/asdt68/pi2-ha2.3</code>
+        <ol start="2">
+          <li><code>pikachu.json</code> hinzufügen: <code>git add pikachu.json</code><br>
+            und committen mit Nachricht: <code>git commit -m "Pikachu tritt der Schlacht bei"</code>
+          </li>
+          <li>
+            <code>traumato.json</code> hinzufügen: <code>git add traumato.json</code><br>
+            und committen mit Nachricht: <code>git commit -m "Traumato tritt der Schlacht bei"</code>
+          </li>
+          <li>ins Remote-Repository pushen: <code>git push</code></li>
+          <li>neue Brach erstellen: <code>git checkout -b traumwelt</code></li>
+          <li>
+            branch wechseln: <code>git checkout traumwelt</code><br>
+            <code>traumato.json</code> hinzufügen: <code>git add traumato.json</code><br>
+            und committen mit Nachricht: <code>git commit -m "Traumato setzt Teleport ein"</code>
+          </li>
+          <li>
+            <code>pikachu.json</code> hinzufügen: <code>git add pikachu.json</code><br>
+            und committen mit Nachricht: <code>git commit -m "Traumato greift an, Pikachu verliert 20HP"</code>
+          </li>
+          <li>zum Main-Branch wechseln: <code>git checkout master</code> (bei mir master nicht main)</li>
+          <li>
+            <code>bisasam.json</code> hinzufügen: <code>git add bisasam.json</code><br>
+            und committen mit Nachricht: <code>git commit -m "Bisasam tritt der Schlacht bei"</code>
+          </li>
+          <li>
+            <code>pikachu.json</code> hinzufügen: <code>git add pikachu.json</code><br>
+            und committen mit Nachricht: <code>git commit -m "Bisasam greift an, Pikachu hat Schaden genommen"</code>
+          </li>
+          <li>versuchen zu mergen: <code>git merge traumwelt</code></li>
+          <li>finalen Stand ins Remote-Repository: <code>git push origin master</code></li>
+        </ol>
       </details>
 
       <h3>Vorbereitung</h3>
@@ -221,14 +252,19 @@
           Ändern Sie im Master-Branch <code>pikachu.json</code>, sodass Pikachus HP um 10 reduziert werden (auf 90HP). Committen Sie mit der Nachricht: Bisasam greift an, Pikachu hat Schaden genommen.
         </li>
         <li>
-          Führen Sie einen Merge des <code>traumwelt</code>-Branches in den Master durch. Lösen Sie die entstandenen Merge-Konflikt, sodass Pikachu Schaden aus beiden Attacken nimmt. Geben Sie als Commit-Nachricht an: Konflikt gelöst, Pikachu hat jetzt 70HP.
+          Führen Sie einen Merge des <code>traumwelt</code>-Branches in den Master durch. Lösen Sie den entstandenen Merge-Konflikt, sodass Pikachu Schaden aus beiden Attacken nimmt. Geben Sie als Commit-Nachricht an: Konflikt gelöst, Pikachu hat jetzt 70HP.
           <details>
             <summary>Warum kam es in diesem Schritt zu einem Merge-Konflikt?</summary>
-            Hier ihre Antwort eintragen
+            Dieser Merge-Konflikt entstand, weil Git versucht hat, Änderungen an der selben Zeile in einer Datei aus zwei unterschiedlichen Branches zu kombinieren
+            und daraufhin nicht unterscheiden kann, welche Version übernommen werden soll.<br>
+            Hier in diesem Fall wurde in der master-Branch Pikachus HP von 100 auf 90 und in der traumwelt-Branch von 100 auf 80 reduziert.
+            Dies führte zum Merge-Konflikt, weil Git sicherstellen wollte, dass der Benutzer entscheidet, welche Änderungen übernommen oder kombiniert werden sollen.
           </details>
           <details>
             <summary>Beschreiben Sie wie Sie den Merge-Konflikt gelöst haben.</summary>
-            Hier ihre Antwort eintragen
+            Ich habe in der master-Branch und traumwelt-Branch die HP von Pikachu auf 70 gesetzt<br>
+            und dann in der master-Branch Pikachu hinzugefügt: <code>git add pikachu.json</code>
+            und committet mit Nachricht: <code>git commit -m "Konflikt gelöst, Pikachu hat jetzt 70HP"</code>
           </details>
         </li>
         <li>
