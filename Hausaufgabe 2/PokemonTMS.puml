@@ -1,0 +1,47 @@
+@startuml
+skinparam componentStyle rectangle
+
+package "Pokemon Trainings-Management-System" {
+    ' Backend
+    package "Backend-Services" {
+        [Gateway/Proxy] as Proxy #yellow
+        [Authentifizierungsserver] as AuthServer
+        [Trainings-Scheduler] as Scheduler
+        [Battle-Management-Service] as BattleService
+        [Statistik-Service] as StatService
+        [Benachrichtigungsdienst] as NotifyService #lightblue
+    }
+
+    ' Frontend
+    package "Frontend" {
+        [Arena-Terminals] as ArenaTerminals #rosybrown
+        [Web-App] as WebApp #pink
+
+        ArenaTerminals -right[#006400]-> WebApp : <color:#006400>Kampfdaten synchronisieren
+    }
+
+    ' Nutzer
+    actor Trainer
+    actor Arenaleiter
+
+    Trainer -up[#006400]-> ArenaTerminals : <color:#006400>Zugriff auf Kampfdaten
+    Trainer -up-> WebApp : Zugriff auf Kampf- und Trainingsdaten
+    Arenaleiter -up[#006400]-> ArenaTerminals : <color:#006400>Zugriff auf Kampfdaten
+    Arenaleiter -up-> WebApp : Zugriff auf Kampf- und Trainingsdaten
+
+    ' Verbindungen im Backend
+    WebApp -up[#00008B]-> Proxy : <color:#00008B>Anfragen senden
+    Proxy -down-> AuthServer : Authentifizierung prüfen
+    Proxy -down[#8A2BE2]-> Scheduler : <color:#8A2BE2>Trainingsbuchung
+    Proxy -down[#006400]-> BattleService : <color:#006400>Kampf-Management
+    Proxy -down-> StatService : Statistiken abrufen
+    AuthServer -down-> NotifyService : Rückmeldung
+    BattleService -down[#006400]-> NotifyService : <color:#006400>Anstehende Kämpfe melden
+    BattleService -down[#006400]-> ArenaTerminals : <color:#006400>Kampfdaten synchronisieren
+    StatService -down-> WebApp : Statistiken anzeigen
+    StatService -down-> ArenaTerminals : Statistiken anzeigen
+    StatService -down[#8A2BE2]-> NotifyService : <color:#8A2BE2>Trainingsfortschritte melden
+    NotifyService -down-> WebApp : Benachrichtigungen senden
+    Scheduler -down[#8A2BE2]-> NotifyService : <color:#8A2BE2>Terminbestätigung
+}
+@enduml
