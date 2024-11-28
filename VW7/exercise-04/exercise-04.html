@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Übung 4: Datenbanken</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.3/new.min.css"
+    />
+  </head>
+
+  <body>
+    <header>
+      <h1>Übung 4: Datenbanken</h1>
+      <p>
+        in <a href="https://moodle.thm.de/course/view.php?id=11780">INF1006 Praktische Informatik 2</a>
+        von
+        <a href="https://www.thm.de/mni/martin-weigel">Prof. Dr. Martin Weigel</a>
+      </p>
+    </header>
+
+    <main>
+      <section>
+        <h2>Aufgabe 1: Modellierung des Pokedex</h2>
+        <p>
+          Die Pokemon-Liga möchte ein modernes Pokedex-System entwickeln, das
+          die Daten über Pokemon und ihre Begegnungen mit Trainern verwaltet und
+          zentral speichert. Im Pokedex werden alle Pokemon registriert, diese
+          haben jeweils eine eindeutige Pokedex-Nummer. Zu jedem Pokemon werden
+          zusätzlich Name, Typ (z. B. „Feuer“, „Wasser“, "Gift") und mögliche
+          Entwicklungen und Variationen bzw. Formen gespeichert. Ein Pokemon
+          kann bis zu zwei Typen haben. Einige Pokemon können eine Vielzahl von
+          unterschiedlichen Formen haben (bspw.
+          <a
+            href="https://www.pokemon.com/de/pokedex/sesokitz"
+            target="_blank"
+            title="Sesokitz"
+            >Sesokitz</a
+          >
+          mit unterschiedlichen Formen je nach Jahreszeit) andere eine Vielzahl
+          an möglichen Weiterentwicklungen (bspw.
+          <a
+            href="https://www.pokemon.com/de/pokedex/Evoli"
+            target="_blank"
+            title="Evoli"
+          >
+            Evoli</a
+          >). Unterschiedliche Entwicklungsformen werden als eigener Eintrag im
+          Pokedex gespeichert und diese sind im Pokedex miteinander verknüpft.
+          Die unterschiedlichen Formen jedoch werden als Liste im Eintrag des
+          Pokemons gespeichert Jeder Trainer besitzt seinen eigenen Pokedex, der
+          alle Pokemon listet, denen er begegnet ist. Für jedes registrierte
+          Pokemon speichert der Pokedex die Anzahl der Begegnungen, das erste
+          Begegnungsdatum und – falls es gefangen wurde – das Fangdatum.
+        </p>
+
+        <strong>Aufgaben:</strong>
+        <details>
+          <summary>
+            Erstellen Sie ein ER-Model, das diese Anforderungen abbildet. Dabei
+            müssen alle relevanten Entitäten, Attribute und Beziehungen
+            (inklusive Kardinalitäten) definiert werden.
+          </summary>
+          Fügen Sie hier ihre Antwort ein. (Gerne können Sie diese Aufgabe auf Papier bearbeiten.)
+        </details>
+
+        <details>
+          <summary>
+            Erstellen Sie nun das Relationen-Model zu dem zuvor erstellten
+            ER-Model.
+          </summary>
+          Tragen Sie hier ihre Antwort ein.
+        </details>
+      </section>
+
+      <section>
+        <h2>Aufgabe 2: Normalformen</h2>
+        <p>
+          In dieser Aufgabe korrigieren Sie die gegebene Tabellen Struktur. Ihre
+          Aufgabe liegt darin die gegebenen Tabellen in die dritte Normalform zu
+          überführen.
+        </p>
+
+        <h3>Aufgabe 2.1: Tabellen Struktur</h3>
+
+        <table>
+          <caption>
+            Tabelle: Trainer
+          </caption>
+          <thead>
+            <tr>
+              <th><u>TrainerID</u></th>
+              <th>TrainerName</th>
+              <th>Stadt</th>
+              <th><u>PokemonName</u></th>
+              <th>PokemonTyp</th>
+              <th><u>PokemonFähigkeit</u></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Ash</td>
+              <td>Alabastia</td>
+              <td>Pikachu</td>
+              <td>Elektro</td>
+              <td>Statik</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>Ash</td>
+              <td>Alabastia</td>
+              <td>Pikachu</td>
+              <td>Elektro</td>
+              <td>Blitzfänger</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>Ash</td>
+              <td>Alabastia</td>
+              <td>Glumanda</td>
+              <td>Feuer</td>
+              <td>Großbrand</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Misty</td>
+              <td>Azuria</td>
+              <td>Bisasam</td>
+              <td>Pflanze</td>
+              <td>Notdünger</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Misty</td>
+              <td>Azuria</td>
+              <td>Schillok</td>
+              <td>Wasser</td>
+              <td>Sturzbach</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Misty</td>
+              <td>Azuria</td>
+              <td>Schillok</td>
+              <td>Wasser</td>
+              <td>Regenabwehr</td>
+            </tr>
+          </tbody>
+        </table>
+
+  <input type="checkbox" id="a21_1nf"><label for="a21_1nf">
+    Entspricht die Tabelle der ersten Normalform? Falls nein, wieso nicht?
+  </label><br><input type="text" style="width: 100%"><br>
+  <input type="checkbox" id="a21_2nf"><label for="a21_2nf">
+    Entspricht die Tabelle der zweiten Normalform? Falls nein, wieso nicht?
+  </label><br><input type="text" style="width: 100%"><br>
+  <input type="checkbox" id="a21_3nf"><label for="a21_3nf">
+    Entspricht die Tabelle der dritten Normalform? Falls nein, wieso nicht?
+  </label><br><input type="text" style="width: 100%"><br>
+
+        <details>
+          <summary>
+            Geben Sie die Tabellen in der dritten Normalform an
+          </summary>
+          Tragen Sie hier ihre Antwort ein oder schreiben Sie ihre Antwort auf ein Blatt Papier.
+        </details>
+
+        <h3>Aufgabe 2.2: Tabellen Struktur</h3>
+        <table>
+          <caption>
+            Tabelle: Trainer
+          </caption>
+          <thead>
+            <tr>
+              <th><u>TrainerID</u></th>
+              <th>TrainerName</th>
+              <th>TrainerOrt</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>101</td>
+              <td>Ash</td>
+              <td>Alabastia</td>
+            </tr>
+            <tr>
+              <td>102</td>
+              <td>Misty</td>
+              <td>Azuria</td>
+            </tr>
+            <tr>
+              <td>103</td>
+              <td>Brock</td>
+              <td>Vertania Stadt</td>
+            </tr>
+          </tbody>
+        </table>
+
+  <input type="checkbox" id="a22_1nf"><label for="a22_1nf">
+    Entspricht die Tabelle der ersten Normalform? Falls nein, wieso nicht?
+  </label><br><input type="text" style="width: 100%"><br>
+  <input type="checkbox" id="a22_2nf"><label for="a22_2nf">
+    Entspricht die Tabelle der zweiten Normalform? Falls nein, wieso nicht?
+  </label><br><input type="text" style="width: 100%"><br>
+  <input type="checkbox" id="a22_3nf"><label for="a22_3nf">
+    Entspricht die Tabelle der dritten Normalform? Falls nein, wieso nicht?
+  </label><br><input type="text" style="width: 100%"><br>
+
+        <table>
+          <caption>
+            Tabelle: Pokemon Angriffe
+          </caption>
+          <thead>
+            <tr>
+              <th><u>PokemonID</u></th>
+              <th>TrainerID</th>
+              <th>PokemonName</th>
+              <th><u>Attacke</u></th>
+              <th>AttackeStärke</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>101</td>
+              <td>Pikachu</td>
+              <td>Donnerblitz</td>
+              <td>90</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>102</td>
+              <td>Bisasam</td>
+              <td>Pflanzenschuss</td>
+              <td>45</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>101</td>
+              <td>Pikachu</td>
+              <td>Ruckzuckhieb</td>
+              <td>30</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>103</td>
+              <td>Geodude</td>
+              <td>Felswurf</td>
+              <td>60</td>
+            </tr>
+          </tbody>
+        </table>
+
+  <input type="checkbox" id="a23_1nf"><label for="a23_1nf">
+    Entspricht die Tabelle der ersten Normalform? Falls nein, wieso nicht?
+  </label><br><input type="text" style="width: 100%"><br>
+  <input type="checkbox" id="a23_2nf"><label for="a23_2nf">
+    Entspricht die Tabelle der zweiten Normalform? Falls nein, wieso nicht?
+  </label><br><input type="text" style="width: 100%"><br>
+  <input type="checkbox" id="a23_3nf"><label for="a23_3nf">
+    Entspricht die Tabelle der dritten Normalform? Falls nein, wieso nicht?
+  </label><br><input type="text" style="width: 100%"><br>
+
+        <details>
+          <summary>
+            Geben Sie die Tabellen in der dritten Normalform an
+          </summary>
+          Tragen Sie hier ihre Antwort ein oder schreiben Sie ihre Antwort auf ein Blatt Papier.
+        </details>
+      </section>
+    </main>
+  </body>
+</html>
