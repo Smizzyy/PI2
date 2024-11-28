@@ -33,13 +33,16 @@
       <details>
         <summary>An welcher Architektur von verteilten Systemen ist der Burgerladen angelehnt?</summary>
         Die Architektur, die hier dargestellt wird, ist angelehnt an ein verteiltes System mit klarer Arbeitsteilung und Kommunikation zwischen den verschiedenen Diensten.
+        Dies könnte an der Schichtenarchitektur mit Upcall angelegt sein.
       </details>
 
       <details>
         <summary>Mit welchen Kommunikationsmustern würden Sie die vier Komponenten verbinden? Begründen Sie ihre Antwort.</summary>
         Bei Message Queuing kann Beispielsweise der Kundenservice (Pikachu) Bestellungen aufnehmen und in eine Queue stellen,
-        während die Bestellverwaltung (Hoothoot) die Bestellungen verarbeitet, ohne dass Pikachu auf eine sofortige Antwort wartet.
-        Request-Response ist sinnvoll, wenn die Komponenten in Echtzeit miteinander kommunizieren müssen, z. B. wenn der Kundenservice sofortige Rückmeldungen an die Kunden benötigt.
+        während die Bestellverwaltung (Hoothoot) die Bestellungen verarbeitet, ohne dass Pikachu auf eine sofortige Antwort wartet.<br><br>
+        Request-Response ist sinnvoll, wenn die Komponenten in Echtzeit miteinander kommunizieren müssen, z. B. wenn der Kundenservice sofortige Rückmeldungen an die Kunden benötigt.<br><br>
+        Publish-Subscribe: Die Bestellverwaltung (Hoothoot) fungiert als Publisher und sendet Nachrichten über spezifische Themen (Topics), wie z. B. „Zutatenbestand“ oder „Küchenaufträge“.
+        Enton (Lagerverwaltung) und Glumanda (Küche) agieren als Subscriber und erhalten nur die Nachrichten, die für ihre Aufgaben relevant sind.
       </details>
 
       <h3>Erweitern der Speisekarte</h3>
