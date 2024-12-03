@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hausübung 3: Datenbanken und SQL</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.3/new.min.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>Hausübung 3: Datenbanken und SQL</h1>
+      <p>
+        in <a href="https://moodle.thm.de/course/view.php?id=11780">INF1006 Praktische Informatik 2</a>
+        von <a href="https://www.thm.de/mni/martin-weigel">Prof. Dr. Martin Weigel</a>
+      </p>
+    </header>
+
+    <main>
+      <p>
+        Bitte bereiten Sie die Lösungen sorgfältig vor. Laden Sie diese als
+        zip-Archiv im Moodle hoch. Die Abgabedeadline steht im Moodle. Pro
+        Hausübungsgruppe ist nur eine Abgabe notwendig. In der darauffolgenden
+        Übung muss aber jeder Studierende in der Lage sein, die Lösungen zu
+        erklären. Zum Bestehen der Hausübung müssen die Aufgaben überwiegend
+        richtig gelöst sein. Das Bestehen liegt im Ermessen der Tutoren und
+        Übungsbetreuer. Bei Fragen wenden Sie sich an ihre Tutoren.
+      </p>
+
+      <section>
+        <h2>Aufgabe 1: Kartenshop-Datenbank</h2>
+        <p>
+          In dieser Aufgabe sollen Sie eine Datenbank anhand einer Beschreibung
+          der Funktionalitäten einer Webseite modellieren. Bei der Webseite
+          handelt es sich um einen online Pokemon-Karten-Shop.
+        </p>
+
+        <p>
+          <strong>Aufgabenbeschreibung:</strong>
+          Die fiktive Seite Cards4Evoli ist ein Pokemon <abbr title="Trading Card Game">TCG</abbr> Marktplatz. Der Marktplatz erlaubt den Kauf und Verkauf von Karten zwischen Nutzern. Nutzer können Gebote auf die Auktionen anderer Nutzer abgeben in der Hoffnung Karten zu einem niedrigen Preis zu ergattern. Eine Auktion hat einen Status (geplant, aktiv, abgeschlossen oder abgebrochen), ein Ende und kann eine oder mehrere Karten beinhalten. Auktionen können immer einem Nutzer (<em>Verkäufer</em>) zugeordnet werden. Für jede Karte muss der Kartenname, der Qualitätszustand, das Jahr der Auflage und der Kartentyp (Holo, Reverse-Holo, Full-Art, Ultra Rare, Secret Rare oder Shiny) angegeben werden. Gebote für eine Auktion haben einen Zeitstempel, Geldbetrag und müssen einem potentiellen Nutzer (<em>Käufer</em>) zugeordnet werden.
+        </p>
+
+        <p>
+          Nach erfolgreichem Kauf erhalten Käufer und Verkäufer Zugriff auf die Kontaktdaten (Name, Telefon und E-Mailadresse). Auch die Adressen werden ausgetauscht, damit der Verkäufer die Karten an den Käufer schicken kann.
+        </p>
+
+        <details>
+          <summary>
+            Erstellen Sie ein ER-Modell, das diese Anforderungen abbildet.
+          </summary>
+          Fügen Sie hier ihre Antwort ein (PlantUML, Foto oder Scan).
+        </details>
+
+        <details>
+          <summary>
+            Überführen Sie das ER-Modell in das Relationen-Modell.
+          </summary>
+          Fügen Sie hier ihre Antwort ein (PlantUML, Foto oder Scan).
+        </details>
+
+        <p>Prüfen Sie alle Regeln der ersten bis zur dritten Normalform. Falls ihr Modell nicht der 3NF entspricht, formen Sie es entsprechend um.</p>
+      </section>
+
+
+      <section>
+        <h2>Aufgabe 2: MariaDB Tabellen und Inhalte</h2>
+        <p>In dieser Aufgabe werden wir die Tabellen in einer MariaDB Datenbank anlegen und mit Beispielinhalten füllen. Nutzen Sie dafür die ihnen zur Verfügung gestellte MariaDB Datenbank auf dem THM-Server: ip1-dbs.mni.thm.de (Port: 3306). Benutzername und Passwort sind ihre THM-E-Mailadresse. Beachten Sie, dass der Datenbankserver nur aus dem THM-Netzwerk erreichbar ist. Benutzen Sie für ihre Tabellennamen einen Präfix, damit die Aufgabe nicht mit den Tabellen aus der Übung und dem Praxisblock kollidiert (z.B. "c4e_tablename")</p>
+
+        <details>
+          <summary>
+            Erstellen Sie die für die Datenbank notwendigen Tabellen. Setzen Sie hierfür möglichst genaue Wertebereiche fest.
+          </summary>
+          Tragen Sie hier ihre SQL-Befehle ein.
+        </details>
+
+        <details>
+          <summary>
+            Befüllen Sie ihre Datenbank mit Beispieldaten ("Dummydaten").
+            Ihre Datenbank soll mindestens 10 Auktionen und 20 Gebote von mindestens 5 Benutzern besitzen.
+            Sie können dafür gerne Online-Tools wie <a href="https://www.mockaroo.com">Mockaroo</a> verwenden.
+          </summary>
+          Tragen Sie hier ihre SQL-Befehle ein.
+        </details>
+      </section>
+
+
+      <section>
+        <h2>Aufgabe 3: SQL Abfragen</h2>
+        <p>Überlegen Sie sich die SQL-Anfragen für folgende Aufgaben. Testen Sie, ob die Anfragen korrekt sind mit ihrer Datenbank. Falls ihre Datenbank keine Ausgabe liefern kann, weil Sie die passenden Einträge nicht enthält dürfen Sie weitere Einträge der Datenbank hinzufügen.</p>
+
+        <details>
+          <summary>
+            Geben Sie den SQL-Befehl an, um die Auktion mit der ID 4 auf den Status "abgebrochen" zu setzen.
+          </summary>
+          Tragen Sie hier den SQL-Befehl und die Serverantwort ein.
+        </details>
+
+        <details>
+          <summary>
+            Geben Sie den SQL-Befehl an, um mit einem Benutzer (ID=5) den Betrag 13,37 Euro auf die Auktion mit der ID 2 bieten zu lassen.
+          </summary>
+          Tragen Sie hier den SQL-Befehl und die Serverantwort ein.
+        </details>
+
+        <details>
+          <summary>
+            Geben Sie den SQL-Befehl an, um Namen und E-Mailadressen aller Benutzer sortiert nach der Anzahl ihrer Auktionen ausgeben zu lassen.
+          </summary>
+          Tragen Sie hier den SQL-Befehl und die Serverantwort ein.
+        </details>
+
+        <details>
+          <summary>
+            Geben Sie den SQL-Befehl an, um sich alle "Glurak"-Karten aus aktiven Auktionen sortiert nach ihrer Qualität anzeigen zu lassen.
+          </summary>
+          Tragen Sie hier den SQL-Befehl und die Serverantwort ein.
+        </details>
+
+        <details>
+          <summary>
+            Geben Sie den SQL-Befehl an, um den Karten eine Spalte "Ratingagentur" hinzuzufügen, welche den Qualitätszustand der Karte beurteilt hat.
+          </summary>
+          Tragen Sie hier den SQL-Befehl und die Serverantwort ein.
+        </details>
+
+        <details>
+          <summary>
+            Lassen Sie sich alle Auktionen anzeigen, bei denen der Benutzer mit ID 3 das Höchstgebot abgegeben hat und welche den Status "abgeschlossen" besitzen.
+          </summary>
+          Tragen Sie hier den SQL-Befehl und die Serverantwort ein.
+        </details>
+
+        <details>
+          <summary>
+            Benutzer mit der ID 2 möchte das Benutzerkonto und alle damit verknüpften Daten löschen. Geben Sie den SQL-Befehl dazu an. Was für Probleme könnten beim Löschen entstehen? Wie könnte man die Probleme vermeiden?
+          </summary>
+          Tragen Sie hier den SQL-Befehl und die Serverantwort ein.
+        </details>
+      </section>
+    </main>
+  </body>
+</html>
