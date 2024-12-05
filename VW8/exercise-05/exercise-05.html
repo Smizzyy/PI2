@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8">
+    <title>Übung 5: SQL</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.3/new.min.css">
+  </head>
+
+  <body>
+    <header>
+        <h1>Übung 5: SQL</h1>
+        <p>in <a href="https://moodle.thm.de/course/view.php?id=11780">INF1006 Praktische Informatik 2</a> von <a href="https://www.thm.de/mni/martin-weigel">Prof. Dr. Martin Weigel</a></p>
+    </header>
+
+    <main>
+      <p>Bitte benutzen Sie für diese Übung die MariaDB ihrer Hausübungsgruppe:
+        <dl>
+          <dt>Server</dt>
+          <dd>ip1-dbs.mni.thm.de</dd>
+          <dt>Port</dt>
+          <dd>3306</dd>
+          <dt>Username und Passwort</dt>
+          <dd>THM-E-Mail laut Moodle (ohne Leerzeichen!)</dd>
+          <dt>Datenbankname</dt>
+          <dd>z.B. PI2_Fr_1_X (für HÜ Gruppe X in Fr-1)</dd>
+        </dl>
+
+      <section>
+        <h2>Aufgabe 1: Datendefinition</h2>
+        <p>In dieser Aufgabe erstellen und füllen wir Datenbanktabellen mit Spieler, Item und Game-Daten für ein <em>Super Smash Bros.</em>-artiges Videospiel. Erstellen Sie mit SQL Tabellen für die folgenden drei Tabellen im Relationenmodell. Überlegen Sie sich passende Typen und notwendigen Checks, um die abstrakten Domänen umzusetzen. Nutzen Sie für Tabellennamen und Attribute nur Kleinbuchstaben und trennen Sie Wörter mit einem Unterstrich <code>_</code>.</p>
+
+        <img alt="Siehe a1.puml" src="./a1.svg">
+
+        <p>Nachdem Sie ihre Tabellen angelegt haben, nutzen Sie die <a href="./a1.sql">a1.sql-Datei</a> aus dem Aufgabenverzeichnis, um die Tabellen mit Daten zu befüllen. Achten Sie darauf, dass ihre Spaltennamen ggf. anders benannt wurden und Sie diese anpassen müssen.</p>
+
+        <p>Schauen Sie sich die Inhalte der Tabellen mit dem Datenbankexplorer aus IntelliJ an.</p>
+
+        <p>Versuchen Sie einen eigenen Eintrag hinzuzufügen, welcher die Checks der Datenbank nicht einhält (z.B. <code>Score</code> -10). Beobachten Sie was passiert.</p>
+      </section>
+
+      <section>
+        <h2>Aufgabe 2: Datenabfrage und -manipulation</h2>
+        <p>Überlegen Sie sich die passenden SQL-Abfragen für folgende Aufgaben. Testen Sie diese Anhand ihrer Datenbank mit den Beispieldaten:</p>
+
+        <ol>
+          <li>Finde alle Spieler, die ein Bonusitem besitzen, und gib <code>PlayerNickname</code> und <code>HoldsBonusItem</code> aus.
+          <li>Gib die Anzahl der Spieler für jede <code>CurrentGameID</code> aus. Zeige nur Spiele an, in denen mindestens ein Spieler vorhanden ist.
+          <li>Zeige die Nicknames der 5 Spieler an welche die Top-3 (nach <code>Score</code>) knapp verpasst haben (also Platz 4-8).
+          <li>Finde den Spieler mit dem kleinsten Score und gib dessen <code>PlayerNickname</code> und <code>Score</code> aus. Bei mehreren Spielern mit dem kleinsten Score sollen alle ausgegeben werden.
+          <li>Wir möchten wissen welcher Spieler in welcher Arena spielt. Erstelle dafür eine Tabelle mit den Spalten <code>ArenaName</code> und <code>PlayerNickname</code>. Sortiere die Ausgabe absteigend nach <code>ArenaName</code> und bei gleicher Arena nach <code>PlayerNickname</code>.</li>
+          <li>Setze für alle Spieler mit einem <code>Score</code> unter 1000 den <code>Score</code> auf 1000.
+          <li>Lösche den Spieler mit dem Nickname <em>Knossi</em> aus der Tabelle.
+          <li>Füge der Tabelle <code>e5_Player</code> eine neue Spalte <code>Kills</code> hinzu, die die Anzahl der besiegten Spieler speichert. Setze den Standardwert auf 0.
+        </ol>
+      </section>
+    </main>
+  </body>
+</html>

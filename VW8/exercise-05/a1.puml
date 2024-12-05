@@ -1,0 +1,28 @@
+@startuml
+entity e5_Player {
+    + <u>ID</u> : INT [> 0] <<PK>>
+    --
+    PlayerNickname : STRING [≠ NULL, UNIQUE, 3-20 Charakters]
+    SmashCharacter : STRING [≠ NULL, max. 20 Charakters]
+    Score : INT [> 0]
+    CurrentGameID : e5_Games <<FK>>
+    HoldsBonusItem : e5_BonusItem <<FK>>
+}
+
+entity e5_Games {
+    + <u>GameID</u> : INT [> 0] <<PK>>
+    --
+    ArenaName : STRING
+    StartTimestamp : DATETIME
+}
+
+entity e5_BonusItems {
+    + <u>ItemID</u> : INT [> 0] <<PK>>
+    --
+    ItemName : STRING [≠ NULL, max. 20 Charakters]
+    EffectDescription : STRING [max. 100 Charakters]
+}
+
+e5_Player "N" -- "1" e5_Games
+e5_Player "1" -- "1" e5_BonusItems
+@enduml
