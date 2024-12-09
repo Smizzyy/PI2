@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dc77195c-4e56-412f-ad31-cdf8f4f51f94" name="Changes" comment="jpg">
+    <list default="true" id="dc77195c-4e56-412f-ad31-cdf8f4f51f94" name="Changes" comment="html">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hausaufgabe 3/homework-3.html" beforeDir="false" afterPath="$PROJECT_DIR$/Hausaufgabe 3/homework-3.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,7 +142,7 @@
       <workItem from="1733398465049" duration="6638000" />
       <workItem from="1733482546777" duration="87000" />
       <workItem from="1733482681825" duration="14569000" />
-      <workItem from="1733742809885" duration="14094000" />
+      <workItem from="1733742809885" duration="15086000" />
     </task>
     <task id="LOCAL-00001" summary="a">
       <option name="closed" value="true" />
@@ -289,7 +288,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733752272064</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="html">
+      <option name="closed" value="true" />
+      <created>1733759500106</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1733759500106</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -327,6 +334,7 @@
     <MESSAGE value="added ha3" />
     <MESSAGE value="ha3" />
     <MESSAGE value="jpg" />
-    <option name="LAST_COMMIT_MESSAGE" value="jpg" />
+    <MESSAGE value="html" />
+    <option name="LAST_COMMIT_MESSAGE" value="html" />
   </component>
 </project>
