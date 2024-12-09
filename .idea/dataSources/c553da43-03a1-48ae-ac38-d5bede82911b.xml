@@ -1206,7 +1206,7 @@ PI2_Mi_3_J|schema||alexander.schmidt-3@mni.thm.de||UPDATE|G</Grants>
     </collation>
     <schema id="508" parent="1" name="PI2_Mi_3_J">
       <Current>1</Current>
-      <LastIntrospectionLocalTimestamp>2024-12-05.12:09:10</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2024-12-09.13:18:30</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_general_ci</CollationName>
     </schema>
     <schema id="509" parent="1" name="information_schema">
@@ -1229,80 +1229,77 @@ PI2_Mi_3_J|schema||alexander.schmidt-3@mni.thm.de||UPDATE|G</Grants>
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="515" parent="508" name="e5_BonusItems">
+    <table id="515" parent="508" name="ErikAuktion">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="516" parent="508" name="e5_Games">
+    <table id="516" parent="508" name="ErikCards">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="517" parent="508" name="e5_Players">
+    <table id="517" parent="508" name="ErikGebote">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <column id="518" parent="511" name="AuctionID">
-      <AutoIncrement>1</AutoIncrement>
+    <table id="518" parent="508" name="ErikNutzer">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_general_ci</CollationName>
+    </table>
+    <table id="519" parent="508" name="Theo_Auktion">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_general_ci</CollationName>
+    </table>
+    <table id="520" parent="508" name="Theo_Gebot">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_general_ci</CollationName>
+    </table>
+    <table id="521" parent="508" name="Theo_Karten">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_general_ci</CollationName>
+    </table>
+    <table id="522" parent="508" name="Theo_Nutzer">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_general_ci</CollationName>
+    </table>
+    <table id="523" parent="508" name="e5_BonusItems">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_general_ci</CollationName>
+    </table>
+    <table id="524" parent="508" name="e5_Games">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_general_ci</CollationName>
+    </table>
+    <table id="525" parent="508" name="e5_Players">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_general_ci</CollationName>
+    </table>
+    <column id="526" parent="511" name="AuctionID">
+      <AutoIncrement>11</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>int(11)|0s</StoredType>
     </column>
-    <column id="519" parent="511" name="Email">
+    <column id="527" parent="511" name="AuctionEnd">
       <Position>2</Position>
-      <StoredType>varchar(50)|0s</StoredType>
+      <StoredType>timestamp|0s</StoredType>
     </column>
-    <column id="520" parent="511" name="CardID">
+    <column id="528" parent="511" name="CardsAmount">
+      <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>int(11)|0s</StoredType>
     </column>
-    <column id="521" parent="511" name="AuctionEnd">
+    <column id="529" parent="511" name="State">
       <Position>4</Position>
-      <StoredType>timestamp|0s</StoredType>
+      <StoredType>enum(&apos;planed&apos;, &apos;active&apos;, &apos;completed&apos;, &apos;canceled&apos;)|0e</StoredType>
     </column>
-    <column id="522" parent="511" name="CardsAmount">
-      <NotNull>1</NotNull>
+    <column id="530" parent="511" name="UserID">
       <Position>5</Position>
       <StoredType>int(11)|0s</StoredType>
     </column>
-    <column id="523" parent="511" name="State">
-      <Position>6</Position>
-      <StoredType>enum(&apos;planed&apos;, &apos;active&apos;, &apos;completed&apos;, &apos;canceled&apos;)|0e</StoredType>
-    </column>
-    <column id="524" parent="511" name="BiddingID">
-      <Position>7</Position>
-      <StoredType>int(11)|0s</StoredType>
-    </column>
-    <foreign-key id="525" parent="511" name="Alex_Auktion_ibfk_2">
-      <ColNames>Email</ColNames>
-      <RefColNames>Email</RefColNames>
-      <RefTableName>Alex_Nutzer</RefTableName>
-    </foreign-key>
-    <foreign-key id="526" parent="511" name="Alex_Auktion_ibfk_1">
-      <ColNames>CardID</ColNames>
-      <RefColNames>CardID</RefColNames>
-      <RefTableName>Alex_Karte</RefTableName>
-    </foreign-key>
-    <foreign-key id="527" parent="511" name="Alex_Auktion_ibfk_3">
-      <ColNames>BiddingID</ColNames>
-      <RefColNames>BiddingID</RefColNames>
-      <RefTableName>Alex_Gebote</RefTableName>
-    </foreign-key>
-    <index id="528" parent="511" name="PRIMARY">
+    <index id="531" parent="511" name="PRIMARY">
       <ColNames>AuctionID</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
-    </index>
-    <index id="529" parent="511" name="Email">
-      <ColNames>Email</ColNames>
-      <Type>btree</Type>
-    </index>
-    <index id="530" parent="511" name="CardID">
-      <ColNames>CardID</ColNames>
-      <Type>btree</Type>
-    </index>
-    <index id="531" parent="511" name="BiddingID">
-      <ColNames>BiddingID</ColNames>
-      <Type>btree</Type>
     </index>
     <key id="532" parent="511" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
@@ -1310,7 +1307,7 @@ PI2_Mi_3_J|schema||alexander.schmidt-3@mni.thm.de||UPDATE|G</Grants>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="533" parent="512" name="BiddingID">
-      <AutoIncrement>1</AutoIncrement>
+      <AutoIncrement>22</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>int(11)|0s</StoredType>
@@ -1319,270 +1316,267 @@ PI2_Mi_3_J|schema||alexander.schmidt-3@mni.thm.de||UPDATE|G</Grants>
       <Position>2</Position>
       <StoredType>int(11)|0s</StoredType>
     </column>
-    <column id="535" parent="512" name="Email">
-      <Position>3</Position>
-      <StoredType>varchar(50)|0s</StoredType>
-    </column>
-    <column id="536" parent="512" name="AmountPaid">
+    <column id="535" parent="512" name="AmountPaid">
       <NotNull>1</NotNull>
-      <Position>4</Position>
+      <Position>3</Position>
       <StoredType>decimal(65,2 digit)|0s</StoredType>
     </column>
-    <column id="537" parent="512" name="TimeStamp">
-      <Position>5</Position>
+    <column id="536" parent="512" name="TimeStamp">
+      <Position>4</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <foreign-key id="538" parent="512" name="Alex_Gebote_ibfk_1">
-      <ColNames>AuctionID</ColNames>
-      <RefColNames>AuctionID</RefColNames>
-      <RefTableName>Alex_Auktion</RefTableName>
-    </foreign-key>
-    <foreign-key id="539" parent="512" name="Alex_Gebote_ibfk_2">
-      <ColNames>Email</ColNames>
-      <RefColNames>Email</RefColNames>
-      <RefTableName>Alex_Nutzer</RefTableName>
-    </foreign-key>
-    <index id="540" parent="512" name="PRIMARY">
+    <column id="537" parent="512" name="UserID">
+      <Position>5</Position>
+      <StoredType>int(11)|0s</StoredType>
+    </column>
+    <index id="538" parent="512" name="PRIMARY">
       <ColNames>BiddingID</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="541" parent="512" name="AuctionID">
+    <index id="539" parent="512" name="AuctionID">
       <ColNames>AuctionID</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="542" parent="512" name="Email">
-      <ColNames>Email</ColNames>
+    <index id="540" parent="512" name="fk_UserID">
+      <ColNames>UserID</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="543" parent="512" name="PRIMARY">
+    <key id="541" parent="512" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="544" parent="513" name="CardID">
-      <AutoIncrement>1</AutoIncrement>
+    <column id="542" parent="513" name="CardID">
+      <AutoIncrement>11</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>int(11)|0s</StoredType>
     </column>
-    <column id="545" parent="513" name="CardName">
+    <column id="543" parent="513" name="CardName">
       <Position>2</Position>
       <StoredType>varchar(50)|0s</StoredType>
     </column>
-    <column id="546" parent="513" name="ReleaseDate">
+    <column id="544" parent="513" name="ReleaseDate">
       <Position>3</Position>
       <StoredType>date|0s</StoredType>
     </column>
-    <column id="547" parent="513" name="Quality">
+    <column id="545" parent="513" name="Quality">
       <Position>4</Position>
       <StoredType>varchar(50)|0s</StoredType>
     </column>
-    <column id="548" parent="513" name="CardType">
+    <column id="546" parent="513" name="CardType">
       <Position>5</Position>
       <StoredType>enum(&apos;Holo&apos;, &apos;Reverse-Holo&apos;, &apos;Ultra Rare&apos;, &apos;Secret Rare&apos;, &apos;Shiny&apos;)|0e</StoredType>
     </column>
-    <index id="549" parent="513" name="PRIMARY">
+    <column id="547" parent="513" name="AuctionID">
+      <Position>6</Position>
+      <StoredType>int(11)|0s</StoredType>
+    </column>
+    <column id="548" parent="513" name="Ratingagentur">
+      <DefaultExpression>&apos;Unknown&apos;</DefaultExpression>
+      <Position>7</Position>
+      <StoredType>varchar(50)|0s</StoredType>
+    </column>
+    <foreign-key id="549" parent="513" name="Alex_Karte_ibfk_1">
+      <ColNames>AuctionID</ColNames>
+      <RefColNames>AuctionID</RefColNames>
+      <RefTableName>Alex_Auktion</RefTableName>
+    </foreign-key>
+    <index id="550" parent="513" name="PRIMARY">
       <ColNames>CardID</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="550" parent="513" name="PRIMARY">
+    <index id="551" parent="513" name="AuctionID">
+      <ColNames>AuctionID</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="552" parent="513" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="551" parent="514" name="Email">
-      <NotNull>1</NotNull>
+    <column id="553" parent="514" name="FirstName">
       <Position>1</Position>
       <StoredType>varchar(50)|0s</StoredType>
     </column>
-    <column id="552" parent="514" name="FirstName">
+    <column id="554" parent="514" name="LastName">
       <Position>2</Position>
       <StoredType>varchar(50)|0s</StoredType>
     </column>
-    <column id="553" parent="514" name="LastName">
+    <column id="555" parent="514" name="TelephoneNo">
       <Position>3</Position>
-      <StoredType>varchar(50)|0s</StoredType>
-    </column>
-    <column id="554" parent="514" name="TelephoneNo">
-      <Position>4</Position>
       <StoredType>varchar(16)|0s</StoredType>
     </column>
-    <column id="555" parent="514" name="Street">
-      <Position>5</Position>
+    <column id="556" parent="514" name="Street">
+      <Position>4</Position>
       <StoredType>varchar(50)|0s</StoredType>
     </column>
-    <column id="556" parent="514" name="ZipCode">
-      <Position>6</Position>
+    <column id="557" parent="514" name="ZipCode">
+      <Position>5</Position>
       <StoredType>varchar(10)|0s</StoredType>
     </column>
-    <column id="557" parent="514" name="Town">
+    <column id="558" parent="514" name="Town">
+      <Position>6</Position>
+      <StoredType>varchar(50)|0s</StoredType>
+    </column>
+    <column id="559" parent="514" name="Email">
+      <NotNull>1</NotNull>
       <Position>7</Position>
       <StoredType>varchar(50)|0s</StoredType>
     </column>
-    <column id="558" parent="514" name="AuctionID">
+    <column id="560" parent="514" name="UserID">
+      <AutoIncrement>11</AutoIncrement>
+      <NotNull>1</NotNull>
       <Position>8</Position>
       <StoredType>int(11)|0s</StoredType>
     </column>
-    <column id="559" parent="514" name="BiddingID">
-      <Position>9</Position>
-      <StoredType>int(11)|0s</StoredType>
-    </column>
-    <foreign-key id="560" parent="514" name="Alex_Nutzer_ibfk_1">
-      <ColNames>AuctionID</ColNames>
-      <RefColNames>AuctionID</RefColNames>
-      <RefTableName>Alex_Auktion</RefTableName>
-    </foreign-key>
-    <foreign-key id="561" parent="514" name="Alex_Nutzer_ibfk_2">
-      <ColNames>BiddingID</ColNames>
-      <RefColNames>BiddingID</RefColNames>
-      <RefTableName>Alex_Gebote</RefTableName>
-    </foreign-key>
-    <index id="562" parent="514" name="PRIMARY">
-      <ColNames>Email</ColNames>
+    <index id="561" parent="514" name="PRIMARY">
+      <ColNames>UserID</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="563" parent="514" name="AuctionID">
-      <ColNames>AuctionID</ColNames>
-      <Type>btree</Type>
-    </index>
-    <index id="564" parent="514" name="BiddingID">
-      <ColNames>BiddingID</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="565" parent="514" name="PRIMARY">
+    <key id="562" parent="514" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <check id="566" parent="515" name="ItemID">
-      <ColNames>ItemID</ColNames>
-      <NameSurrogate>1</NameSurrogate>
-      <Predicate>`ItemID` &gt; 0</Predicate>
-    </check>
-    <column id="567" parent="515" name="ItemID">
+    <column id="563" parent="515" name="auktionID">
+      <AutoIncrement>11</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>int(11)|0s</StoredType>
     </column>
-    <column id="568" parent="515" name="ItemName">
-      <NotNull>1</NotNull>
+    <column id="564" parent="515" name="state">
       <Position>2</Position>
-      <StoredType>varchar(20)|0s</StoredType>
+      <StoredType>enum(&apos;geplant&apos;, &apos;aktiv&apos;, &apos;abgeschlossen&apos;, &apos;abgebrochen&apos;)|0e</StoredType>
     </column>
-    <column id="569" parent="515" name="EffectDescription">
+    <column id="565" parent="515" name="auktionEnde">
       <Position>3</Position>
-      <StoredType>varchar(100)|0s</StoredType>
+      <StoredType>timestamp|0s</StoredType>
     </column>
-    <index id="570" parent="515" name="PRIMARY">
-      <ColNames>ItemID</ColNames>
+    <column id="566" parent="515" name="cardsAmount">
+      <Position>4</Position>
+      <StoredType>int(11)|0s</StoredType>
+    </column>
+    <column id="567" parent="515" name="ID">
+      <Position>5</Position>
+      <StoredType>int(11)|0s</StoredType>
+    </column>
+    <foreign-key id="568" parent="515" name="ErikAuktion_ibfk_1">
+      <ColNames>ID</ColNames>
+      <RefColNames>ID</RefColNames>
+      <RefTableName>ErikNutzer</RefTableName>
+    </foreign-key>
+    <index id="569" parent="515" name="PRIMARY">
+      <ColNames>auktionID</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
+    </index>
+    <index id="570" parent="515" name="ID">
+      <ColNames>ID</ColNames>
+      <Type>btree</Type>
     </index>
     <key id="571" parent="515" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="572" parent="516" name="GameID">
-      <AutoIncrement>17</AutoIncrement>
+    <column id="572" parent="516" name="cardID">
+      <AutoIncrement>11</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>int(11)|0s</StoredType>
     </column>
-    <column id="573" parent="516" name="ArenaName">
+    <column id="573" parent="516" name="name">
       <Position>2</Position>
+      <StoredType>varchar(50)|0s</StoredType>
+    </column>
+    <column id="574" parent="516" name="realeaseYear">
+      <Position>3</Position>
+      <StoredType>int(11)|0s</StoredType>
+    </column>
+    <column id="575" parent="516" name="quality">
+      <Position>4</Position>
       <StoredType>varchar(30)|0s</StoredType>
     </column>
-    <column id="574" parent="516" name="StartTimestamp">
-      <Position>3</Position>
-      <StoredType>datetime|0s</StoredType>
+    <column id="576" parent="516" name="cardType">
+      <Position>5</Position>
+      <StoredType>enum(&apos;Holo&apos;, &apos;Reverse-Holo&apos;, &apos;Full-Art&apos;, &apos;Ultra Rare&apos;, &apos;Secrete Rare&apos;, &apos;Shiny&apos;)|0e</StoredType>
     </column>
-    <index id="575" parent="516" name="PRIMARY">
-      <ColNames>GameID</ColNames>
+    <column id="577" parent="516" name="auktionID">
+      <Position>6</Position>
+      <StoredType>int(11)|0s</StoredType>
+    </column>
+    <column id="578" parent="516" name="Ratingagentur">
+      <Position>7</Position>
+      <StoredType>float|0s</StoredType>
+    </column>
+    <foreign-key id="579" parent="516" name="ErikCards_ibfk_1">
+      <ColNames>auktionID</ColNames>
+      <RefColNames>auktionID</RefColNames>
+      <RefTableName>ErikAuktion</RefTableName>
+    </foreign-key>
+    <index id="580" parent="516" name="PRIMARY">
+      <ColNames>cardID</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="576" parent="516" name="PRIMARY">
+    <index id="581" parent="516" name="auktionID">
+      <ColNames>auktionID</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="582" parent="516" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <check id="577" parent="517" name="ID">
-      <ColNames>ID</ColNames>
-      <NameSurrogate>1</NameSurrogate>
-      <Predicate>`ID` &gt; 0</Predicate>
-    </check>
-    <check id="578" parent="517" name="Score">
-      <ColNames>Score</ColNames>
-      <NameSurrogate>1</NameSurrogate>
-      <Predicate>`Score` &gt; 0</Predicate>
-    </check>
-    <check id="579" parent="517" name="PlayerNickname">
-      <ColNames>PlayerNickname</ColNames>
-      <NameSurrogate>1</NameSurrogate>
-      <Predicate>octet_length(`PlayerNickname`) &gt;= 3</Predicate>
-    </check>
-    <check id="580" parent="517" name="SmashCharacter">
-      <ColNames>SmashCharacter</ColNames>
-      <NameSurrogate>1</NameSurrogate>
-      <Predicate>octet_length(`SmashCharacter`)</Predicate>
-    </check>
-    <column id="581" parent="517" name="ID">
+    <column id="583" parent="517" name="biddingID">
+      <AutoIncrement>21</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>int(11)|0s</StoredType>
     </column>
-    <column id="582" parent="517" name="PlayerNickname">
+    <column id="584" parent="517" name="ID">
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StoredType>varchar(30)|0s</StoredType>
-    </column>
-    <column id="583" parent="517" name="SmashCharacter">
-      <NotNull>1</NotNull>
-      <Position>3</Position>
-      <StoredType>varchar(20)|0s</StoredType>
-    </column>
-    <column id="584" parent="517" name="Score">
-      <Position>4</Position>
       <StoredType>int(11)|0s</StoredType>
     </column>
-    <column id="585" parent="517" name="CurrentGameID">
+    <column id="585" parent="517" name="amountPaid">
+      <Position>3</Position>
+      <StoredType>decimal(65,2 digit)|0s</StoredType>
+    </column>
+    <column id="586" parent="517" name="timeStamp">
+      <Position>4</Position>
+      <StoredType>timestamp|0s</StoredType>
+    </column>
+    <column id="587" parent="517" name="auktionID">
       <Position>5</Position>
       <StoredType>int(11)|0s</StoredType>
     </column>
-    <column id="586" parent="517" name="HoldsBonusItem">
-      <Position>6</Position>
-      <StoredType>int(11)|0s</StoredType>
-    </column>
-    <foreign-key id="587" parent="517" name="e5_Players_ibfk_1">
-      <ColNames>CurrentGameID</ColNames>
-      <RefColNames>GameID</RefColNames>
-      <RefTableName>e5_Games</RefTableName>
+    <foreign-key id="588" parent="517" name="ErikGebote_ibfk_2">
+      <ColNames>ID</ColNames>
+      <RefColNames>ID</RefColNames>
+      <RefTableName>ErikNutzer</RefTableName>
     </foreign-key>
-    <foreign-key id="588" parent="517" name="e5_Players_ibfk_2">
-      <ColNames>HoldsBonusItem</ColNames>
-      <RefColNames>ItemID</RefColNames>
-      <RefTableName>e5_BonusItems</RefTableName>
+    <foreign-key id="589" parent="517" name="ErikGebote_ibfk_1">
+      <ColNames>auktionID</ColNames>
+      <RefColNames>auktionID</RefColNames>
+      <RefTableName>ErikAuktion</RefTableName>
     </foreign-key>
-    <index id="589" parent="517" name="PRIMARY">
+    <index id="590" parent="517" name="PRIMARY">
+      <ColNames>biddingID
+ID</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="591" parent="517" name="ID">
       <ColNames>ID</ColNames>
       <Type>btree</Type>
-      <Unique>1</Unique>
     </index>
-    <index id="590" parent="517" name="PlayerNickname">
-      <ColNames>PlayerNickname</ColNames>
-      <Type>btree</Type>
-      <Unique>1</Unique>
-    </index>
-    <index id="591" parent="517" name="CurrentGameID">
-      <ColNames>CurrentGameID</ColNames>
-      <Type>btree</Type>
-    </index>
-    <index id="592" parent="517" name="HoldsBonusItem">
-      <ColNames>HoldsBonusItem</ColNames>
+    <index id="592" parent="517" name="auktionID">
+      <ColNames>auktionID</ColNames>
       <Type>btree</Type>
     </index>
     <key id="593" parent="517" name="PRIMARY">
@@ -1590,7 +1584,403 @@ PI2_Mi_3_J|schema||alexander.schmidt-3@mni.thm.de||UPDATE|G</Grants>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <key id="594" parent="517" name="PlayerNickname">
+    <column id="594" parent="518" name="ID">
+      <AutoIncrement>6</AutoIncrement>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int(11)|0s</StoredType>
+    </column>
+    <column id="595" parent="518" name="email">
+      <Position>2</Position>
+      <StoredType>varchar(50)|0s</StoredType>
+    </column>
+    <column id="596" parent="518" name="firstName">
+      <Position>3</Position>
+      <StoredType>varchar(20)|0s</StoredType>
+    </column>
+    <column id="597" parent="518" name="lastName">
+      <Position>4</Position>
+      <StoredType>varchar(20)|0s</StoredType>
+    </column>
+    <column id="598" parent="518" name="phoneNr">
+      <Position>5</Position>
+      <StoredType>varchar(50)|0s</StoredType>
+    </column>
+    <column id="599" parent="518" name="street">
+      <Position>6</Position>
+      <StoredType>varchar(20)|0s</StoredType>
+    </column>
+    <column id="600" parent="518" name="zipCode">
+      <Position>7</Position>
+      <StoredType>varchar(20)|0s</StoredType>
+    </column>
+    <column id="601" parent="518" name="town">
+      <Position>8</Position>
+      <StoredType>varchar(30)|0s</StoredType>
+    </column>
+    <index id="602" parent="518" name="PRIMARY">
+      <ColNames>ID</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="603" parent="518" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="604" parent="519" name="AuctionID">
+      <AutoIncrement>12</AutoIncrement>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int(11)|0s</StoredType>
+    </column>
+    <column id="605" parent="519" name="Endzeitpunkt">
+      <Position>2</Position>
+      <StoredType>timestamp|0s</StoredType>
+    </column>
+    <column id="606" parent="519" name="Status">
+      <Position>3</Position>
+      <StoredType>enum(&apos;geplant&apos;, &apos;aktiv&apos;, &apos;abgeschlossen&apos;, &apos;abgebrochen&apos;)|0e</StoredType>
+    </column>
+    <column id="607" parent="519" name="UserID">
+      <Position>4</Position>
+      <StoredType>int(11)|0s</StoredType>
+    </column>
+    <foreign-key id="608" parent="519" name="Theo_Auktion_ibfk_1">
+      <ColNames>UserID</ColNames>
+      <RefColNames>UserID</RefColNames>
+      <RefTableName>Theo_Nutzer</RefTableName>
+    </foreign-key>
+    <index id="609" parent="519" name="AuctionID">
+      <ColNames>AuctionID</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="610" parent="519" name="PRIMARY">
+      <ColNames>AuctionID</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="611" parent="519" name="UserID">
+      <ColNames>UserID</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="612" parent="519" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <key id="613" parent="519" name="AuctionID">
+      <UnderlyingIndexName>AuctionID</UnderlyingIndexName>
+    </key>
+    <column id="614" parent="520" name="BidID">
+      <AutoIncrement>22</AutoIncrement>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int(11)|0s</StoredType>
+    </column>
+    <column id="615" parent="520" name="UserID">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>int(11)|0s</StoredType>
+    </column>
+    <column id="616" parent="520" name="Zeitstempel">
+      <Position>3</Position>
+      <StoredType>timestamp|0s</StoredType>
+    </column>
+    <column id="617" parent="520" name="Betrag">
+      <Position>4</Position>
+      <StoredType>decimal(10,2 digit)|0s</StoredType>
+    </column>
+    <column id="618" parent="520" name="AuctionID">
+      <Position>5</Position>
+      <StoredType>int(11)|0s</StoredType>
+    </column>
+    <foreign-key id="619" parent="520" name="Theo_Gebot_ibfk_2">
+      <ColNames>UserID</ColNames>
+      <RefColNames>UserID</RefColNames>
+      <RefTableName>Theo_Nutzer</RefTableName>
+    </foreign-key>
+    <foreign-key id="620" parent="520" name="Theo_Gebot_ibfk_1">
+      <ColNames>AuctionID</ColNames>
+      <RefColNames>AuctionID</RefColNames>
+      <RefTableName>Theo_Auktion</RefTableName>
+    </foreign-key>
+    <index id="621" parent="520" name="PRIMARY">
+      <ColNames>BidID
+UserID</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="622" parent="520" name="BidID">
+      <ColNames>BidID</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="623" parent="520" name="UserID">
+      <ColNames>UserID</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="624" parent="520" name="AuctionID">
+      <ColNames>AuctionID</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="625" parent="520" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <key id="626" parent="520" name="BidID">
+      <UnderlyingIndexName>BidID</UnderlyingIndexName>
+    </key>
+    <column id="627" parent="521" name="CardID">
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int(11)|0s</StoredType>
+    </column>
+    <column id="628" parent="521" name="Name">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>varchar(50)|0s</StoredType>
+    </column>
+    <column id="629" parent="521" name="Auflagejahr">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>int(11)|0s</StoredType>
+    </column>
+    <column id="630" parent="521" name="Kartentyp">
+      <Position>4</Position>
+      <StoredType>enum(&apos;Holo&apos;, &apos;Reverse-Holo&apos;, &apos;Full-Art&apos;, &apos;Ultra Rare&apos;, &apos;Secret Rare&apos;, &apos;Shiny&apos;)|0e</StoredType>
+    </column>
+    <column id="631" parent="521" name="Zustand">
+      <Position>5</Position>
+      <StoredType>enum(&apos;neu&apos;, &apos;wie neu&apos;, &apos;leichte Gebrauchsspuren&apos;, &apos;Gebrauchsspuren&apos;, &apos;starke Gebrauchsspuren&apos;)|0e</StoredType>
+    </column>
+    <column id="632" parent="521" name="AuctionID">
+      <Position>6</Position>
+      <StoredType>int(11)|0s</StoredType>
+    </column>
+    <column id="633" parent="521" name="Ratingagentur">
+      <Position>7</Position>
+      <StoredType>enum(&apos;Zustand wie angegeben&apos;, &apos;Zustand besser wie angegeben&apos;, &apos;Zustand schlechter wie angegeben&apos;)|0e</StoredType>
+    </column>
+    <foreign-key id="634" parent="521" name="Theo_Karten_ibfk_1">
+      <ColNames>AuctionID</ColNames>
+      <RefColNames>AuctionID</RefColNames>
+      <RefTableName>Theo_Auktion</RefTableName>
+    </foreign-key>
+    <index id="635" parent="521" name="CardID">
+      <ColNames>CardID</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="636" parent="521" name="PRIMARY">
+      <ColNames>CardID</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="637" parent="521" name="AuctionID">
+      <ColNames>AuctionID</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="638" parent="521" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <key id="639" parent="521" name="CardID">
+      <UnderlyingIndexName>CardID</UnderlyingIndexName>
+    </key>
+    <column id="640" parent="522" name="UserID">
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int(11)|0s</StoredType>
+    </column>
+    <column id="641" parent="522" name="email">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>varchar(50)|0s</StoredType>
+    </column>
+    <column id="642" parent="522" name="name">
+      <Position>3</Position>
+      <StoredType>varchar(50)|0s</StoredType>
+    </column>
+    <column id="643" parent="522" name="Telefonnummer">
+      <Position>4</Position>
+      <StoredType>varchar(50)|0s</StoredType>
+    </column>
+    <column id="644" parent="522" name="Straße">
+      <Position>5</Position>
+      <StoredType>varchar(50)|0s</StoredType>
+    </column>
+    <column id="645" parent="522" name="Hausnummer">
+      <Position>6</Position>
+      <StoredType>int(11)|0s</StoredType>
+    </column>
+    <column id="646" parent="522" name="PLZ">
+      <Position>7</Position>
+      <StoredType>varchar(6)|0s</StoredType>
+    </column>
+    <index id="647" parent="522" name="PRIMARY">
+      <ColNames>UserID</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="648" parent="522" name="UserID">
+      <ColNames>UserID</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="649" parent="522" name="email">
+      <ColNames>email</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="650" parent="522" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <key id="651" parent="522" name="UserID">
+      <UnderlyingIndexName>UserID</UnderlyingIndexName>
+    </key>
+    <key id="652" parent="522" name="email">
+      <UnderlyingIndexName>email</UnderlyingIndexName>
+    </key>
+    <check id="653" parent="523" name="ItemID">
+      <ColNames>ItemID</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <Predicate>`ItemID` &gt; 0</Predicate>
+    </check>
+    <column id="654" parent="523" name="ItemID">
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int(11)|0s</StoredType>
+    </column>
+    <column id="655" parent="523" name="ItemName">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>varchar(20)|0s</StoredType>
+    </column>
+    <column id="656" parent="523" name="EffectDescription">
+      <Position>3</Position>
+      <StoredType>varchar(100)|0s</StoredType>
+    </column>
+    <index id="657" parent="523" name="PRIMARY">
+      <ColNames>ItemID</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="658" parent="523" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="659" parent="524" name="GameID">
+      <AutoIncrement>17</AutoIncrement>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int(11)|0s</StoredType>
+    </column>
+    <column id="660" parent="524" name="ArenaName">
+      <Position>2</Position>
+      <StoredType>varchar(30)|0s</StoredType>
+    </column>
+    <column id="661" parent="524" name="StartTimestamp">
+      <Position>3</Position>
+      <StoredType>datetime|0s</StoredType>
+    </column>
+    <index id="662" parent="524" name="PRIMARY">
+      <ColNames>GameID</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="663" parent="524" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <check id="664" parent="525" name="ID">
+      <ColNames>ID</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <Predicate>`ID` &gt; 0</Predicate>
+    </check>
+    <check id="665" parent="525" name="Score">
+      <ColNames>Score</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <Predicate>`Score` &gt; 0</Predicate>
+    </check>
+    <check id="666" parent="525" name="PlayerNickname">
+      <ColNames>PlayerNickname</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <Predicate>octet_length(`PlayerNickname`) &gt;= 3</Predicate>
+    </check>
+    <check id="667" parent="525" name="SmashCharacter">
+      <ColNames>SmashCharacter</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <Predicate>octet_length(`SmashCharacter`)</Predicate>
+    </check>
+    <column id="668" parent="525" name="ID">
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int(11)|0s</StoredType>
+    </column>
+    <column id="669" parent="525" name="PlayerNickname">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>varchar(30)|0s</StoredType>
+    </column>
+    <column id="670" parent="525" name="SmashCharacter">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>varchar(20)|0s</StoredType>
+    </column>
+    <column id="671" parent="525" name="Score">
+      <Position>4</Position>
+      <StoredType>int(11)|0s</StoredType>
+    </column>
+    <column id="672" parent="525" name="CurrentGameID">
+      <Position>5</Position>
+      <StoredType>int(11)|0s</StoredType>
+    </column>
+    <column id="673" parent="525" name="HoldsBonusItem">
+      <Position>6</Position>
+      <StoredType>int(11)|0s</StoredType>
+    </column>
+    <foreign-key id="674" parent="525" name="e5_Players_ibfk_1">
+      <ColNames>CurrentGameID</ColNames>
+      <RefColNames>GameID</RefColNames>
+      <RefTableName>e5_Games</RefTableName>
+    </foreign-key>
+    <foreign-key id="675" parent="525" name="e5_Players_ibfk_2">
+      <ColNames>HoldsBonusItem</ColNames>
+      <RefColNames>ItemID</RefColNames>
+      <RefTableName>e5_BonusItems</RefTableName>
+    </foreign-key>
+    <index id="676" parent="525" name="PRIMARY">
+      <ColNames>ID</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="677" parent="525" name="PlayerNickname">
+      <ColNames>PlayerNickname</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="678" parent="525" name="CurrentGameID">
+      <ColNames>CurrentGameID</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="679" parent="525" name="HoldsBonusItem">
+      <ColNames>HoldsBonusItem</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="680" parent="525" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <key id="681" parent="525" name="PlayerNickname">
       <UnderlyingIndexName>PlayerNickname</UnderlyingIndexName>
     </key>
   </database-model>
