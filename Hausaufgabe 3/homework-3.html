@@ -47,14 +47,14 @@
           <summary>
             Erstellen Sie ein ER-Modell, das diese Anforderungen abbildet.
           </summary>
-          Fügen Sie hier ihre Antwort ein (PlantUML, Foto oder Scan).
+          <img src="ER-Modell.jpg" alt="ER-Modell" width="800" height="600">
         </details>
 
         <details>
           <summary>
             Überführen Sie das ER-Modell in das Relationen-Modell.
           </summary>
-          Fügen Sie hier ihre Antwort ein (PlantUML, Foto oder Scan).
+          <img src="Relationsmodell.jpg" alt="Relationsmodell" width="800" height="700">
         </details>
 
         <p>Prüfen Sie alle Regeln der ersten bis zur dritten Normalform. Falls ihr Modell nicht der 3NF entspricht, formen Sie es entsprechend um.</p>
@@ -69,7 +69,58 @@
           <summary>
             Erstellen Sie die für die Datenbank notwendigen Tabellen. Setzen Sie hierfür möglichst genaue Wertebereiche fest.
           </summary>
-          Tragen Sie hier ihre SQL-Befehle ein.
+          <h4>Nutzer:</h4>
+          <code>CREATE TABLE Alex_Nutzer ( <br>
+            UserID INTEGER AUTO_INCREMENT, <br>
+            Email VARCHAR(50) NOT NULL, <br>
+            FirstName VARCHAR(50) NOT NULL, <br>
+            LastName VARCHAR(50) NOT NULL, <br>
+            TelephoneNo VARCHAR(16) DEFAULT 'Hidden', <br>
+            Street VARCHAR(50) NOT NULL, <br>
+            ZipCode VARCHAR(10) NOT NULL, <br>
+            Town VARCHAR(50) NOT NULL, <br> <br>
+
+            PRIMARY KEY (UserID));
+          </code> <br><br>
+          <h4>Auktionen:</h4>
+          <code>
+            CREATE TABLE Alex_Auktion ( <br>
+            AuctionID INTEGER AUTO_INCREMENT, <br>
+            Email VARCHAR(50), <br>
+            UserID INTEGER, <br>
+            AuctionEnd TIMESTAMP NOT NULL, <br>
+            CardsAmount INTEGER NOT NULL, <br>
+            State ENUM('planed', 'active', 'completed', 'canceled') NOT NULL, <br><br>
+
+            PRIMARY KEY (AuctionID), <br>
+            FOREIGN KEY (UserID) REFERENCES Alex_Nutzer(UserID));
+          </code> <br><br>
+          <h4>Gebote:</h4>
+          <code>
+            CREATE TABLE Alex_Gebote (^<br>
+            BiddingID INTEGER AUTO_INCREMENT, <br>
+            AuctionID INTEGER, <br>
+            UserID INTEGER, <br>
+            AmountPaid DECIMAL(65, 2) NOT NULL, <br>
+            TimeStamp TIMESTAMP NOT NULL, <br> <br>
+
+            PRIMARY KEY (BiddingID), <br>
+            FOREIGN KEY (AuctionID) REFERENCES Alex_Auktion(AuctionID), <br>
+            FOREIGN KEY (UserID) References Alex_Nutzer(UserID));
+          </code> <br><br>
+          <h4>Karten: </h4>
+          <code>
+            CREATE TABLE Alex_Karte ( <br>
+            CardID INTEGER AUTO_INCREMENT, <br>
+            AuctionID INTEGER, <br>
+            CardName VARCHAR(50) NOT NULL, <br>
+            ReleaseDate DATE NOT NULL, <br>
+            Quality VARCHAR(50) NOT NULL, <br>
+            CardType ENUM('Holo', 'Reverse-Holo', 'Ultra Rare', 'Secret Rare', 'Shiny'), <br><br>
+
+            PRIMARY KEY (CardID), <br>
+            FOREIGN KEY (AuctionID) REFERENCES Alex_Auktion(AuctionID));
+          </code> <br>
         </details>
 
         <details>
@@ -78,7 +129,86 @@
             Ihre Datenbank soll mindestens 10 Auktionen und 20 Gebote von mindestens 5 Benutzern besitzen.
             Sie können dafür gerne Online-Tools wie <a href="https://www.mockaroo.com">Mockaroo</a> verwenden.
           </summary>
-          Tragen Sie hier ihre SQL-Befehle ein.
+          <h4>5 Nutzer:</h4>
+          <code>
+            INSERT INTO Alex_Nutzer (Email, FirstName, LastName, TelephoneNo, Street, ZipCode, Town) <br>
+            VALUES <br>
+            ('dhumbie0@joomla.org','Dodie','Humbie','317-518-6298','Westend 15','143082','Odintsovo'), <br>
+            ('apargiter1@vimeo.com','Abran','Pargiter','695-604-7234','Monica 20','2356','Īz̄eh'), <br>
+            ('bwarrener2@tmall.com','Breanne','Warrener','442-280-8376','Loeprich 12','9956','Kendaruan'), <br>
+            ('gtwidale3@uiuc.edu','Gauthier','Twidale','820-249-2559','Sutteridge 89','96-314','Baranów'), <br>
+            ('okarppi4@time.com','Olivette','Karppi','205-878-9881','Summit 32','965-98','Guradog');
+          </code> <br><br>
+          <h4>10 Auktionen:</h4>
+          <code>
+            INSERT INTO Alex_Auktion (UserID, AuctionEnd, CardsAmount, State) <br>
+            VALUES <br>
+            (1, '2024-01-01 12:00:00', 1, 'active'), <br>
+            (2, '2024-01-02 12:00:00', 2, 'active'), <br>
+            (3, '2024-01-03 12:00:00', 1, 'planed'), <br>
+            (4, '2024-01-04 12:00:00', 1, 'planed'), <br>
+            (5, '2024-01-05 12:00:00', 3, 'completed'), <br>
+            (2, '2024-01-06 12:00:00', 1, 'completed'), <br>
+            (5, '2024-01-07 12:00:00', 2, 'active'), <br>
+            (2, '2024-01-08 12:00:00', 1, 'planed'), <br>
+            (3, '2024-01-09 12:00:00', 4, 'canceled'), <br>
+            (1, '2024-01-10 12:00:00', 5, 'completed');
+          </code> <br> <br>
+          <h4>20 Gebote:</h4>
+          <code>
+            INSERT INTO  Alex_Gebote (AuctionID, UserID, AmountPaid, TimeStamp) <br>
+            VALUES <br>
+            (1, 1, 100.50, '2024-12-01 10:00:00'), <br>
+            (1, 2, 105.00, '2024-12-01 10:05:00'), <br>
+            (2, 3, 200.75, '2024-12-02 11:00:00'), <br>
+            (2, 4, 210.25, '2024-12-02 11:15:00'), <br>
+            (3, 5, 150.00, '2024-12-03 12:30:00'), <br>
+            (3, 1, 155.50, '2024-12-03 12:45:00'), <br>
+            (4, 2, 300.00, '2024-12-04 14:00:00'), <br>
+            (4, 3, 305.75, '2024-12-04 14:15:00'), <br>
+            (5, 4, 450.50, '2024-12-05 15:00:00'), <br>
+            (5, 5, 475.00, '2024-12-05 15:30:00'), <br>
+            (6, 1, 120.00, '2024-12-06 16:00:00'), <br>
+            (6, 2, 125.25, '2024-12-06 16:30:00'), <br>
+            (7, 3, 250.50, '2024-12-07 17:00:00'), <br>
+            (7, 4, 260.75, '2024-12-07 17:15:00'), <br>
+            (8, 5, 350.00, '2024-12-08 18:00:00'), <br>
+            (8, 1, 355.50, '2024-12-08 18:30:00'), <br>
+            (9, 2, 400.75, '2024-12-09 19:00:00'), <br>
+            (9, 3, 420.00, '2024-12-09 19:15:00'), <br>
+            (10, 4, 500.25, '2024-12-10 20:00:00'), <br>
+            (10, 5, 550.00, '2024-12-10 20:30:00');
+          </code> <br><br>
+          <h4>(Zusatz) 10 Karten:</h4>
+          <code>
+            INSERT INTO Alex_Karte (CardName, ReleaseDate, Quality, CardType) <br>
+            VALUES <br>
+            ('Pikachu', '2010-05-01', 'Mint', 'Holo'), <br>
+            ('Charizard', '2011-07-15', 'Near Mint', 'Ultra Rare'), <br>
+            ('Bulbasaur', '2012-09-10', 'Good', 'Reverse-Holo'), <br>
+            ('Squirtle', '2013-03-20', 'Excellent', 'Shiny'), <br>
+            ('Eevee', '2014-11-25', 'Mint', 'Holo'), <br>
+            ('Jigglypuff', '2015-06-30', 'Fair', 'Ultra Rare'), <br>
+            ('Mewtwo', '2016-04-18', 'Near Mint', 'Secret Rare'), <br>
+            ('Snorlax', '2017-08-22', 'Excellent', 'Holo'), <br>
+            ('Dragonite', '2018-10-01', 'Good', 'Reverse-Holo'), <br>
+            ('Gengar', '2019-12-15', 'Mint', 'Shiny'); <br><br>
+
+            UPDATE Alex_Karte <br>
+            SET AuctionID = CASE CardID <br>
+            WHEN 1 THEN 1 <br>
+            WHEN 2 THEN 2 <br>
+            WHEN 3 THEN 5 <br>
+            WHEN 4 THEN 4 <br>
+            WHEN 5 THEN 5 <br>
+            WHEN 6 THEN 2 <br>
+            WHEN 7 THEN 5 <br>
+            WHEN 8 THEN 2 <br>
+            WHEN 9 THEN 3 <br>
+            WHEN 10 THEN 1 <br>
+            END <br>
+            WHERE CardID BETWEEN 1 AND 10;
+          </code> <br>
         </details>
       </section>
 
@@ -91,49 +221,159 @@
           <summary>
             Geben Sie den SQL-Befehl an, um die Auktion mit der ID 4 auf den Status "abgebrochen" zu setzen.
           </summary>
-          Tragen Sie hier den SQL-Befehl und die Serverantwort ein.
+          <code>
+            UPDATE Alex_Auktion <br>
+            SET State = 'canceled' <br>
+            WHERE AuctionID = 4;
+          </code>
         </details>
 
         <details>
           <summary>
             Geben Sie den SQL-Befehl an, um mit einem Benutzer (ID=5) den Betrag 13,37 Euro auf die Auktion mit der ID 2 bieten zu lassen.
           </summary>
-          Tragen Sie hier den SQL-Befehl und die Serverantwort ein.
+          <code>
+            INSERT INTO Alex_Gebote (AuctionID, UserID, AmountPaid, TimeStamp) <br>
+            VALUES (2, 5, 13.37, NOW());
+          </code>
         </details>
 
         <details>
           <summary>
             Geben Sie den SQL-Befehl an, um Namen und E-Mailadressen aller Benutzer sortiert nach der Anzahl ihrer Auktionen ausgeben zu lassen.
           </summary>
-          Tragen Sie hier den SQL-Befehl und die Serverantwort ein.
+          <code>
+            SELECT <br>
+            n.FirstName, <br>
+            n.LastName, <br>
+            n.Email, <br>
+            -- Zählt Anzahl der AuctionID pro UserID und verknüpft die beiden Tabellen über die Spalte UserID <br>
+            COUNT(a.AuctionID) <br>
+            AS <br>
+            AuctionCount <br>
+            FROM <br>
+            Alex_Nutzer n <br>
+            LEFT JOIN <br>
+            Alex_Auktion a <br>
+            ON n.UserID = a.UserID <br>
+            GROUP BY <br>
+            n.UserID, n.FirstName, n.LastName, n.Email <br>
+            ORDER BY <br>
+            AuctionCount DESC; -- absteigend sortiert
+          </code>
         </details>
 
         <details>
           <summary>
             Geben Sie den SQL-Befehl an, um sich alle "Glurak"-Karten aus aktiven Auktionen sortiert nach ihrer Qualität anzeigen zu lassen.
           </summary>
-          Tragen Sie hier den SQL-Befehl und die Serverantwort ein.
+          <code>
+            SELECT <br>
+            k.CardName, <br>
+            k.Quality, <br>
+            k.CardType, <br>
+            a.State <br>
+            FROM <br>
+            Alex_Karte k <br>
+            JOIN <br>
+            Alex_Auktion a <br>
+            ON -- Verknüpfung der Tabellen über die AuktionID in der Karten-Tabelle <br>
+            k.AuctionID = a.AuctionID <br>
+            WHERE -- nur Glurak der mit aktiver Auktion <br>
+            k.CardName = 'Charizard' AND a.State = 'active' <br>
+            ORDER BY <br>
+            k.Quality ASC; -- aufsteigend sortiert
+          </code>
         </details>
 
         <details>
           <summary>
             Geben Sie den SQL-Befehl an, um den Karten eine Spalte "Ratingagentur" hinzuzufügen, welche den Qualitätszustand der Karte beurteilt hat.
           </summary>
-          Tragen Sie hier den SQL-Befehl und die Serverantwort ein.
+          <code>
+            ALTER TABLE Alex_Karte <br>
+            ADD Ratingagentur VARCHAR(50) DEFAULT 'Unknown'; <br><br>
+
+            UPDATE Alex_Karte <br>
+            SET Ratingagentur = CASE <br>
+            WHEN CardName = 'Pikachu' THEN 'PSA' <br>
+            WHEN CardName = 'Charizard' THEN 'Beckett' <br>
+            WHEN CardName = 'Bulbasaur' THEN 'CGC' <br>
+            WHEN CardName = 'Squirtle' THEN 'PSA' <br>
+            WHEN CardName = 'Eevee' THEN 'CGC' <br>
+            WHEN CardName = 'Jigglypuff' THEN 'PSA' <br>
+            WHEN CardName = 'Mewtwo' THEN 'Beckett' <br>
+            WHEN CardName = 'Snorlax' THEN 'PSA' <br>
+            WHEN CardName = 'Dragonite' THEN 'CGC' <br>
+            WHEN CardName = 'Gengar' THEN 'PSA' <br>
+            ELSE 'Unknown' -- Für Karten ohne spezifische Agentur <br>
+            END <br>
+            WHERE CardName IS NOT NULL;
+          </code>
         </details>
 
         <details>
           <summary>
             Lassen Sie sich alle Auktionen anzeigen, bei denen der Benutzer mit ID 3 das Höchstgebot abgegeben hat und welche den Status "abgeschlossen" besitzen.
           </summary>
-          Tragen Sie hier den SQL-Befehl und die Serverantwort ein.
+          <code>
+            SELECT <br>
+            a.AuctionID, <br>
+            a.UserID AS AuctionOwner, <br>
+            a.State, <br>
+            g.BiddingID, <br>
+            g.AmountPaid, <br>
+            g.UserID AS Bidder <br>
+            FROM <br>
+            Alex_Auktion a <br>
+            JOIN <br>
+            Alex_Gebote g <br>
+            ON -- Verknüpfung der Tabellen über die AuktionID in der Auktion-Tabelle <br>
+            a.AuctionID = g.AuctionID <br>
+            WHERE <br>
+            g.UserID = 3 AND <br>
+            a.State = 'completed' AND <br>
+            g.AmountPaid = ( -- Unterabfrage <br>
+            SELECT MAX(g2.AmountPaid) -- maximaler Wert in der Zeile AmountPaid <br>
+            FROM Alex_Gebote g2 <br>
+            WHERE g2.AuctionID = a.AuctionID <br>
+            );
+          </code>
         </details>
 
         <details>
           <summary>
             Benutzer mit der ID 2 möchte das Benutzerkonto und alle damit verknüpften Daten löschen. Geben Sie den SQL-Befehl dazu an. Was für Probleme könnten beim Löschen entstehen? Wie könnte man die Probleme vermeiden?
           </summary>
-          Tragen Sie hier den SQL-Befehl und die Serverantwort ein.
+          <code>
+            DELETE FROM Alex_Auktion <br>
+            WHERE UserID = 2; <br><br>
+
+            DELETE FROM Alex_Gebote <br>
+            WHERE UserID = 2; <br><br>
+
+            DELETE FROM Alex_Nutzer <br>
+            WHERE UserID = 2;
+          </code> <br><br>
+          <strong>Problem:</strong><br>
+          Wenn die Tabellen Fremdschlüsselbeziehungen haben und der Benutzer mit UserID = 2 in anderen Tabellen referenziert wird, blockiert die Datenbank den Löschvorgang.
+          Alex_Auktion.UserID und Alex_Gebote.UserID sind Fremdschlüssel, die auf Alex_Nutzer.UserID zeigen.
+          Beim Versuch, den Benutzer zu löschen, ohne vorher die abhängigen Daten zu entfernen, wird ein Fehler wie "Cannot delete or update a parent row: a foreign key constraint fails" ausgegeben. <br><br>
+          <strong>Lösung:</strong><br>
+          <code>
+            SET FOREIGN_KEY_CHECKS = 0; <br><br>
+
+            DELETE FROM Alex_Auktion <br>
+            WHERE UserID = 2; <br><br>
+
+            DELETE FROM Alex_Gebote <br>
+            WHERE UserID = 2; <br><br>
+
+            DELETE FROM Alex_Nutzer <br>
+            WHERE UserID = 2; <br><br>
+
+            SET FOREIGN_KEY_CHECKS = 1;
+          </code>
         </details>
       </section>
     </main>
