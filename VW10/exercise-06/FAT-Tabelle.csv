@@ -1,0 +1,38 @@
+ Index        FAT              Cluster [je 4 Byte]
+      0       0x0000           Bisa
+      1       5                Wir
+      2       31               E8gm
+      3       0x0000           Pika
+      4       8                http
+      5       14               <3 E
+      6       0x0000           Merr
+      7       29               -Aer
+      8       9                s://
+      9       10               www.
+      10      11               yout
+      11      15               ube.
+      12      0x0000           y ch
+      13      0x0000           rist
+      14      EOF              voli
+      15      16               com/
+      16      22               watc
+      17      0x0000           mas_
+      18      7                Mega
+      19      0x0000           rand
+      20      EOF              tyl_
+      21      0x0000           omst
+      22      2                h?v=
+      23      0x0000           uff_
+      24      0x0000           FooB
+      25      EOF              PlI_
+      26      0x0000           sam_
+      27      0x0000           Knof
+      28      0x0000           ensa
+      29      20               odac
+      30      0x0000           Blab
+      31      25               ARGv
+
+Stammverzeichnis
+eevee.txt     04.02.2024       12 Bytes                         1
+song.txt      13.03.2007       43 Bytes                         4
+lost.txt      01.01.1970       15 Bytes                        18

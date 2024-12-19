@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Übung: Scheduling und FAT-Tabellen</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.3/new.min.css">
+</head>
+
+<body>
+<header>
+    <h1>Übung: Scheduling und FAT-Tabellen</h1>
+    <p>in <a href="https://moodle.thm.de">INF1006 Praktische Informatik 2</a> von <a href="https://www.thm.de/mni/martin-weigel">Prof. Dr. Martin Weigel</a></p>
+</header>
+
+<main>
+    <section>
+        <h2>Aufgabe 1: Schedulingverfahren</h2>
+        <p>Hilf Professor Eich dabei, die Rechenkapazität des PCs zu verwalten. Es sollen die folgenden fünf Prozesse gerechnet werden:</p>
+
+        <table>
+            <caption>
+            Scheduling Tabelle
+            </caption>
+            <thead>
+                <tr><th>Prozesse<th>Rechenzeit [ms]
+            </thead>
+            <tr><td>A<td>7 ms
+            <tr><td>B<td>5 ms
+            <tr><td>C<td>3 ms
+            <tr><td>D<td>13 ms
+            <tr><td>E<td>9 ms
+        </table>
+
+        <p>Nutze die folgenden Schedulingverfahren:</p>
+
+        <ol>
+            <li><strong>Round-Robin Scheduling</strong> aus der Vorlesung. Nutzen Sie hierfür Zeitscheiben von 5 ms. Der erste gewählte Prozess ist A (dann B, usw.). Das Verfahren ist ein <em>präemptives</em> Scheduling.
+            <li><strong>Shortest Job Next/First (SJN/SJF) Scheduling</strong> bei dem jeweils der kürzeste Prozess zuerst gewählt wird. Das Verfahren ist ein <em>nicht-präemptives</em> Scheduling (siehe <a href="https://de.wikipedia.org/wiki/Shortest-Job-Next">Wikipedia</a>).
+        </ol>
+
+        Geben Sie für die beiden Scheduling-Verfahren folgende Informationen an:
+        <ul>
+            <li>Die <strong>Reihenfolge</strong> der Prozesse sowie deren jeweilige <strong>Berechnungslänge</strong>.</li>
+            <li>Für jeden Prozess die <strong>Laufzeit</strong> (Turnaround Time). Dies ist die Zeitspanne von der Ankunft eines Prozesses bis zu seiner vollständigen Ausführung (Fertigstellung).</li>
+            <li>Die durchschnittliche <strong>Wartezeit</strong> (Waiting Time). Dies ist die Zeitspanne, die ein Prozess im Ready-Queue wartet, bis er von der CPU bearbeitet wird. Sie berücksichtigt nicht die Zeit, die der Prozess tatsächlich auf der CPU läuft.</li>
+        </ul>
+
+        <p>Vergleichen Sie die Ergebnisse beider Scheduling-Verfahren und überlegen Sie sich welche Eigenschaften (s. Vorlesung) die Scheduling-Verfahren priorisieren.</p>
+
+        <h3><b>Zusatz:</b> Scheduling mit verschiedenen Ankunftszeiten</h3>
+        <p>In der Regel liegen nicht alle Prozesse zu Beginn des Schedulings vor, sondern treffen zu unterschiedlichen Zeiten ein. Nutzen Sie folgende Ankunftszeiten für ihr Scheduling:<br> <code>A = 5 ms; B = 0 ms; C = 10 ms; D = 3 ms; E = 13 ms</code>.</p>
+        <p>Sie können entweder direkt die Ankunftszeiten berücksichtigen oder die obige Aufgabe wiederholen, um die Auswirkungen verschiedener Ankunftszeiten besser zu verstehen.</p>
+    </section>
+
+    <section>
+        <h2>Aufgabe 2: Clusterbelegung in FAT-Tabellen</h2>
+        <p>Unterstütze das Pokemon-Forschungsteam dabei, die Daten von einem <a href="FAT-Tabelle.html">antiken FAT-Speicher</a> zu rekonstruieren. Der Speicher hat 4 Bytes pro Cluster, anstatt der heute üblicheren 4kB. Ein Abdruck (Kopie) des Speichers finden sie auch in den Dateien <code>FAT-Tabelle.ods</code> und <code>FAT-Tabelle.csv</code>.</p>
+
+        <ol>
+            <li>Rekonstruieren Sie alle drei Dateien aus dem Stammverzeichnis.</li>
+            <li>Speichern Sie folgende Nachricht im FAT-Speicher: <strong>Mew ist unter dem LKW</strong>. Überschreiben Sie hierfür nur freie Cluster. Das erste Cluster soll an Position 3 sein. Nutzen Sie jeweils das nächste freie Cluster für ihre Clusterkette.Ergänzen Sie auch das Stammverzeichnis.
+            </li>
+        </ol>
+    </section>
+</main>
+</body>
+</html>
