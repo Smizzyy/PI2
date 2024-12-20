@@ -4,5 +4,7 @@
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Hausaufgabe 2/Aufgabe 3/pi2-ha2.3" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/VW1/FirstWebserver" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/VW10/podman-introduction" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/VW10/trainerdb" vcs="Git" />
   </component>
 </project>

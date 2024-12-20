@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="dataSourceStorageLocal" created-in="IU-242.24807.4">
+  <component name="dataSourceStorageLocal" created-in="IU-243.22562.218">
     <data-source name="PI2_Mi_3_J@ip1-dbs.mni.thm.de" uuid="c553da43-03a1-48ae-ac38-d5bede82911b">
       <database-info product="MariaDB" version="10.11.2-MariaDB-1:10.11.2+maria~ubu2204" jdbc-version="4.2" driver-name="MariaDB Connector/J" driver-version="3.3.3" dbms="MARIADB" exact-version="10.11.2" exact-driver-version="3.3">
         <extra-name-characters>#@</extra-name-characters>
@@ -12,6 +12,24 @@
       <schema-mapping>
         <introspection-scope>
           <node kind="schema" qname="@" />
+        </introspection-scope>
+      </schema-mapping>
+    </data-source>
+    <data-source name="@localhost" uuid="1006b9f6-3ed7-4fff-9211-0f4f88238b3d">
+      <database-info product="MariaDB" version="11.6.2-MariaDB-ubu2404" jdbc-version="4.2" driver-name="MariaDB Connector/J" driver-version="3.3.3" dbms="MARIADB" exact-version="11.6.2" exact-driver-version="3.3">
+        <extra-name-characters>#@</extra-name-characters>
+        <identifier-quote-string>`</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>pi2_username</user-name>
+      <schema-mapping>
+        <introspection-scope>
+          <node kind="schema">
+            <name qname="@" />
+            <name qname="information_schema" />
+            <name qname="pi2_trainerdb" />
+          </node>
         </introspection-scope>
       </schema-mapping>
     </data-source>
