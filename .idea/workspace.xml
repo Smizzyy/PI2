@@ -4,19 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dc77195c-4e56-412f-ad31-cdf8f4f51f94" name="Changes" comment="html">
-      <change afterPath="$PROJECT_DIR$/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VW10/trainerdb/Dockerfile-openjdk-21" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VW10/trainerdb/Dockerfile-openjre-21" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="dc77195c-4e56-412f-ad31-cdf8f4f51f94" name="Changes" comment="docker">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VW10/podman-introduction/Dockerfile-openjdk-21" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/VW10/podman-introduction/Dockerfile-openjre-21" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/VW10/podman-introduction/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/VW10/podman-introduction/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VW10/trainerdb/TrainerDB.sql" beforeDir="false" afterPath="$PROJECT_DIR$/VW10/trainerdb/TrainerDB.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VW10/trainerdb/src/main/java/pi2/TrainerDB/MainVerticle.java" beforeDir="false" afterPath="$PROJECT_DIR$/VW10/trainerdb/src/main/java/pi2/TrainerDB/MainVerticle.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,44 +65,44 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "DefaultPlantUmlFileTemplate": "UML Sequence",
-    "Docker.trainerdb/Dockerfile-v1.executor": "Run",
-    "JAR Application.TrainerDB-1.0.0-SNAPSHOT.jar.executor": "Run",
-    "Maven.TrainerDB [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor": "Run",
-    "Maven.TrainerDB [org.apache.maven.plugins:maven-compiler-plugin:3.8.1:compile].executor": "Run",
-    "Maven.TrainerDB [org.apache.maven.plugins:maven-deploy-plugin:3.1.2:deploy-file].executor": "Run",
-    "Maven.TrainerDB [org.apache.maven.plugins:maven-deploy-plugin:3.1.2:deploy].executor": "Run",
-    "Maven.TrainerDB [org.apache.maven.plugins:maven-install-plugin:3.1.2:install].executor": "Run",
-    "Maven.TrainerDB [org.codehaus.mojo:exec-maven-plugin:3.0.0:java].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Shell Script.mvnw.executor": "Run",
-    "database.data.extractors.current.export.id": "Comma-separated (CSV)_id",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/schmi/Desktop/WiSe24-25/Praktische Informatik 2/PI2/VW10/trainerdb",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "ts.external.directory.path": "/Applications/IntelliJ IDEA.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultPlantUmlFileTemplate&quot;: &quot;UML Sequence&quot;,
+    &quot;Docker.trainerdb/Dockerfile-v1.executor&quot;: &quot;Run&quot;,
+    &quot;JAR Application.TrainerDB-1.0.0-SNAPSHOT.jar.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.TrainerDB [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.TrainerDB [org.apache.maven.plugins:maven-compiler-plugin:3.8.1:compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.TrainerDB [org.apache.maven.plugins:maven-deploy-plugin:3.1.2:deploy-file].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.TrainerDB [org.apache.maven.plugins:maven-deploy-plugin:3.1.2:deploy].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.TrainerDB [org.apache.maven.plugins:maven-install-plugin:3.1.2:install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.TrainerDB [org.codehaus.mojo:exec-maven-plugin:3.0.0:java].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Shell Script.mvnw.executor&quot;: &quot;Run&quot;,
+    &quot;database.data.extractors.current.export.id&quot;: &quot;Comma-separated (CSV)_id&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/schmi/Desktop/WiSe24-25/Praktische Informatik 2/PI2/VW10/trainerdb&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Applications/IntelliJ IDEA.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql",
-      "mariadb"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;,
+      &quot;mariadb&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\schmi\Desktop\WiSe24-25\Praktische Informatik 2\PI2\VW10\trainerdb" />
@@ -156,7 +145,9 @@
       <method v="2" />
     </configuration>
     <configuration default="true" type="docker-deploy" factoryName="dockerfile" temporary="true">
-      <deployment type="dockerfile" />
+      <deployment type="dockerfile">
+        <settings />
+      </deployment>
       <method v="2" />
     </configuration>
     <configuration name="trainerdb/Dockerfile-v1" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
@@ -216,6 +207,7 @@
       <workItem from="1734615053700" duration="202000" />
       <workItem from="1734615265394" duration="177000" />
       <workItem from="1734615506704" duration="11803000" />
+      <workItem from="1734702315750" duration="4685000" />
     </task>
     <task id="LOCAL-00001" summary="a">
       <option name="closed" value="true" />
@@ -393,7 +385,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734615342042</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="docker">
+      <option name="closed" value="true" />
+      <created>1734702401515</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1734702401515</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -432,6 +432,7 @@
     <MESSAGE value="ha3" />
     <MESSAGE value="jpg" />
     <MESSAGE value="html" />
-    <option name="LAST_COMMIT_MESSAGE" value="html" />
+    <MESSAGE value="docker" />
+    <option name="LAST_COMMIT_MESSAGE" value="docker" />
   </component>
 </project>
