@@ -21,10 +21,12 @@ public class DeadlockAndRaceCondition {
         thread3.start();
         thread4.start();
 
-        //TODO hier fehlt noch was
+        // Korrektur: .join() einsetzten damit die threads auf ihre Terminierung warten
+        thread3.join();
+        thread4.join();
 
         if (!thread3.isAlive() && !thread4.isAlive()) {
-            //TODO Es sollte eine Liste von 1-40 ausgegeben werden
+            // Liste 1-40 wird ausgegeben
             System.out.println(liste);
         }
 
@@ -34,7 +36,6 @@ public class DeadlockAndRaceCondition {
         @Override
         public void run() {
             try {
-                //TODO Was geht hier schief
                 System.out.println("Task1: Sperre Resource A");
                 resourceA.lock();
                 Thread.sleep(50); // Simulation von Arbeit
@@ -54,12 +55,12 @@ public class DeadlockAndRaceCondition {
         @Override
         public void run() {
             try {
-                //TODO Was geht hier schief
-                System.out.println("Task2: Sperre Resource B");
-                resourceB.lock();
-                Thread.sleep(50); // Simulation von Arbeit
+                // Korrektur: Resource A zuerst sperren dann B
                 System.out.println("Task2: Sperre Resource A");
                 resourceA.lock();
+                Thread.sleep(50); // Simulation von Arbeit
+                System.out.println("Task2: Sperre Resource B");
+                resourceB.lock();
                 System.out.println("Task2: Arbeiten abgeschlossen");
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -78,10 +79,15 @@ public class DeadlockAndRaceCondition {
         public String threadName;
         @Override
         public void run() {
-            //TODO Hier muss die Resource geschützt werden
+            // Korrektur: Schützt die Resource sharedCounter mit CounterLock.lock()
             for (int i = 0; i < 20; i++) {
-                sharedCounter = sharedCounter + 1;
-                liste.add(sharedCounter);
+                CounterLock.lock(); // threads laufen parallel
+                try {
+                    sharedCounter = sharedCounter + 1;
+                    liste.add(sharedCounter);
+                } finally {
+                    CounterLock.unlock();
+                }
             }
         }
     }
